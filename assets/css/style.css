@@ -8,17 +8,38 @@
 /*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/
+/* bebas-neue-latin-400-normal */
+@font-face {
+  font-family: 'Bebas Neue';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+  src: url(https://cdn.jsdelivr.net/fontsource/fonts/bebas-neue@latest/latin-400-normal.woff2) format('woff2'), url(https://cdn.jsdelivr.net/fontsource/fonts/bebas-neue@latest/latin-400-normal.woff) format('woff');
+  unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+}
+
+html {
+  --third-color: #F7DFBA;
+  --linear-grad: linear-gradient(to bottom, #E5EBEA 0%, #AED0C9 70%, #AED0C9 100%);
+  --primary-color: #142D25;
+  --lynx: #F7F7F7;
+  --secondary-color: #000000;
+}
+
+
 body {
   font-family: "Open Sans", sans-serif;
-  color: #fff;
+  color: var(--lynx) !important;
   position: relative;
   background: transparent;
+  letter-spacing: 10px;
+  background: var(--primary-color);
 }
 
 body::before {
   content: "";
   position: fixed;
-  background: #010e1b;
+  background: var(--primary-color);
   background-size: cover;
   left: 0;
   right: 0;
@@ -42,7 +63,11 @@ a:hover {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Raleway", sans-serif;
+  /*font-family: "Raleway", sans-serif;*/
+  font-family: 'Bebas Neue', sans-serif;
+}
+p {
+  font-size: 12px;
 }
 
 /*--------------------------------------------------------------
@@ -51,11 +76,12 @@ h1, h2, h3, h4, h5, h6 {
 #header {
   transition: ease-in-out 0s;
   position: relative;
-  height: 100vh;
   display: flex;
   align-items: center;
   z-index: 997;
   overflow-y: auto;
+  height: 100vh;
+  background: var(--primary-color);
 }
 
 #header * {
@@ -68,11 +94,11 @@ h1, h2, h3, h4, h5, h6 {
   padding: 0;
   line-height: 1;
   font-weight: 700;
-  font-family: "Poppins", sans-serif;
+  font-family: 'Bebas Neue', sans-serif;
 }
 
 #header h1 a, #header h1 a:hover {
-  color: #dee2e6;
+  color: var(--lynx);
   line-height: 1;
   display: inline-block;
 }
@@ -157,10 +183,9 @@ h1, h2, h3, h4, h5, h6 {
 .nav-menu a {
   display: block;
   position: relative;
-  color: #fff;
-  font-size: 19px;
-  font-family: "Poppins", sans-serif;
+  font-size: 13px;
   font-weight: 400;
+  color: var(--third-color);
 }
 
 .nav-menu a:before {
@@ -170,7 +195,7 @@ h1, h2, h3, h4, h5, h6 {
   height: 2px;
   bottom: -4px;
   left: 0;
-  background-color: #9e7f25;
+  background-color: var(--primary-color);
   visibility: hidden;
   width: 0px;
   transition: all 0.3s ease-in-out 0s;
@@ -276,7 +301,7 @@ h1, h2, h3, h4, h5, h6 {
   left: 0;
   top: 0;
   right: 0;
-  background: #09203a;
+  background: transparent;
 }
 
 #header.header-top .social-links, #header.header-top h2 {
@@ -304,6 +329,11 @@ h1, h2, h3, h4, h5, h6 {
   #header.header-top h1 {
     font-size: 26px;
   }
+}
+
+.typing {
+  font-weight: 900;
+  color: var(--third-color);
 }
 
 /*--------------------------------------------------------------
