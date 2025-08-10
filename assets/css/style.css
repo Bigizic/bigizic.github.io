@@ -697,9 +697,10 @@ html {
 .interests .icon-box {
   display: flex;
   align-items: center;
-  padding: 20px;
+  padding: 15px 20px;
   background: var(--third-color);
   transition: ease-in-out 0.3s;
+  width: 100%;
 }
 
 
@@ -880,7 +881,8 @@ html {
   background: var(--third-color);
   padding: 40px 40px;
   transition: all ease-in-out 0.3s;
-  margin: 10px
+  margin: 10px 0 !important;
+  padding: 20px !important;
 }
 
 .services .icon-box .icon {
@@ -1349,4 +1351,11 @@ html {
 
 .home-icon {
   width: 40%;
+}
+
+.removed-margin-pad {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  max-width: 100%;
 }
