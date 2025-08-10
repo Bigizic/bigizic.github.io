@@ -14,7 +14,6 @@ html {
   --primary-color: #142D25;
   --lynx: #F7F7F7;
   --secondary-color: #000000;
-  --primary-linear-grad: linear-gradient(to bottom, #181B26 0%, #060609 70%, #060609 100%);
 }
 
 
@@ -81,7 +80,7 @@ img {
   z-index: 997;
   overflow-y: auto;
   height: 100vh;
-  background: var(--primary-linear-grad);
+  background: var(--primary-color);
 }
 
 #header * {
