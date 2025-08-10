@@ -46,7 +46,7 @@ body::before {
 }
 
 a {
-  color: #12d640;
+  color: var(--secondary-color);
 }
 
 a:hover {
@@ -428,7 +428,7 @@ section .container {
 
 .current-section {
   font-size: 12px;
-  color: #12d640;
+  color: var(--secondary-color);
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -1112,31 +1112,32 @@ html {
 # Contact
 --------------------------------------------------------------*/
 .contact .info-box {
-  color: #444444;
+  color: var(--secondary-color);
   padding: 20px;
   width: 100%;
-  background: #09203a;
+  background: var(--third-color);
+  border-radius: 5px;
 }
 
 .contact .info-box i.bx {
-  font-size: 24px;
-  color: #dee2e6;
+  font-size: 20px;
+  color: var(--secondary-color);
   border-radius: 50%;
-  padding: 14px;
+  padding: 10px 3px 10px 10px;
   float: left;
-  background: rgba(255, 255, 255, 0.1);
+  background: var(--lynx);
 }
 
 .contact .info-box h3 {
   font-size: 20px;
-  color: #28a745;
+  color: var(--secondary-color);
   font-weight: 700;
   margin: 10px 0 8px 68px;
 }
 
 .contact .info-box p {
   padding: 0;
-  color: #fff;
+  color: var(--secondary-color);
   line-height: 24px;
   font-size: 14px;
   margin: 0 0 0 68px;
@@ -1150,7 +1151,7 @@ html {
 .contact .info-box .social-links a {
   font-size: 18px;
   display: inline-block;
-  color: #fff;
+  color: var(--secondary-color);
   line-height: 1;
   margin-right: 12px;
   transition: 0.3s;
@@ -1329,7 +1330,18 @@ html {
 }
 
 .icon-box p, .icon-box h5,
-.icon-box li, .icon-box h6
+.icon-box li, .icon-box h6,
+.third-bg p, .third-bg h5,
+.third-bg li, .third-bg h6
 {
   color: var(--secondary-color);
+}
+
+.third-bg {
+  background: var(--third-color);
+  color: var(--secondary-color);
+}
+
+.third-bg:hover {
+  background: var(--lynx);
 }
