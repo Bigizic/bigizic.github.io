@@ -402,7 +402,7 @@ section .container {
   color: #12d640;
   animation: bounce 2s infinite;
   margin: 5px 0;
-  width: 70%;
+  width: 75%;
 }
 
 .scroll-text {
