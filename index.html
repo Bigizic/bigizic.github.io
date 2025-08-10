@@ -82,8 +82,8 @@
     <div class="current-section">Home</div>
     
     <div class="scroll-down">
-      <i class="bx bx-chevron-down scroll-arrow"></i>
       <span class="scroll-text -down">About</span>
+      <i class="bx bx-chevron-down scroll-arrow"></i>
     </div>
   </div>
 
@@ -534,6 +534,15 @@
       typeSpeed: 65,
       backSpeed: 65
     });
+  </script>
+  
+  <!-- Add custom easing for jQuery -->
+  <script>
+    // Add custom easing function for smooth animations
+    jQuery.easing.easeInOutCubic = function (x, t, b, c, d) {
+      if ((t/=d/2) < 1) return c/2*t*t*t + b;
+      return c/2*((t-=2)*t*t + 2) + b;
+    };
   </script>
 
   <!-- Template Main JS File -->

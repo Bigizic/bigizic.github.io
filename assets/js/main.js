@@ -1,21 +1,40 @@
 /**
- * bootstrapmade.com personal free resume bootstrap template
-*/
+ * Enhanced smooth scroll with GSAP-like behavior
+ */
 !(function($) {
   "use strict";
 
-  // Parallax scroll functionality
+  // Smooth scroll functionality with GSAP-like behavior
   let currentSection = 0;
   const sections = ['home', 'about', 'education', 'experience', 'portfolio', 'skills', 'contacts'];
   let isScrolling = false;
+  let scrollTimeout;
+  let lastScrollTime = 0;
+  let scrollDirection = 0;
+  let isAtSectionEnd = true;
+  let sectionScrollPosition = 0;
 
-  // Initialize parallax scroll
-  function initParallaxScroll() {
+  // Throttle function for better performance
+  function throttle(func, limit) {
+    let inThrottle;
+    return function() {
+      const args = arguments;
+      const context = this;
+      if (!inThrottle) {
+        func.apply(context, args);
+        inThrottle = true;
+        setTimeout(() => inThrottle = false, limit);
+      }
+    }
+  }
+
+  // Initialize smooth scroll
+  function initSmoothScroll() {
     updateScrollIndicator();
     
-    // Smooth scroll to section
-    window.scrollToSection = function(index) {
-      if (isScrolling) return;
+    // Smooth scroll to section with easing
+    window.scrollToSection = function(index, force = false) {
+      if (isScrolling && !force) return;
       isScrolling = true;
       
       const targetSection = index === 0 ? $('#header') : $(`#${sections[index]}`);
@@ -23,45 +42,78 @@
       
       $('html, body').animate({
         scrollTop: targetOffset
-      }, 800, 'easeInOutQuart', function() {
-        currentSection = index;
-        updateScrollIndicator();
-        setTimeout(() => { isScrolling = false; }, 100);
-        $('.-up').html(sections[index - 1])
-        $('.-down').html(sections[index + 1])
+      }, {
+        duration: 1200,
+        easing: 'easeInOutCubic',
+        complete: function() {
+          currentSection = index;
+          sectionScrollPosition = 0;
+          isAtSectionEnd = true;
+          updateScrollIndicator();
+          setTimeout(() => { isScrolling = false; }, 100);
+        }
       });
     };
+
+    // Check if user has scrolled to the end of current section
+    function checkSectionEnd() {
+      const currentSectionElement = currentSection === 0 ? $('#header') : $(`#${sections[currentSection]}`);
+      const sectionHeight = currentSectionElement.outerHeight();
+      const windowHeight = $(window).height();
+      const scrollTop = $(window).scrollTop();
+      const sectionTop = currentSection === 0 ? 0 : currentSectionElement.offset().top;
+      
+      // Calculate relative scroll position within the section
+      const relativeScroll = scrollTop - sectionTop;
+      sectionScrollPosition = relativeScroll;
+      
+      // Check if we're at the end of the section (allowing for some buffer)
+      if (sectionHeight > windowHeight) {
+        isAtSectionEnd = relativeScroll >= (sectionHeight - windowHeight - 50);
+      } else {
+        isAtSectionEnd = true;
+      }
+      
+      return isAtSectionEnd;
+    }
+
+    // Enhanced wheel scroll handling
+    $(window).on('wheel', throttle(function(e) {
+      if (isScrolling) return;
+      
+      const now = Date.now();
+      const delta = e.originalEvent.deltaY;
+      scrollDirection = delta > 0 ? 1 : -1;
+      
+      // Prevent too frequent scroll events
+      if (now - lastScrollTime < 100) return;
+      lastScrollTime = now;
+      
+      checkSectionEnd();
+      
+      // Only change sections if we're at the section end and scrolling in the right direction
+      if (delta > 0 && currentSection < sections.length - 1 && isAtSectionEnd) {
+        // Scroll down to next section
+        e.preventDefault();
+        scrollToSection(currentSection + 1);
+      } else if (delta < 0 && currentSection > 0 && sectionScrollPosition <= 50) {
+        // Scroll up to previous section
+        e.preventDefault();
+        scrollToSection(currentSection - 1);
+      }
+    }, 50));
 
     // Scroll indicators click handlers
     $('.scroll-up').on('click', function() {
       if (currentSection > 0) {
-        scrollToSection(currentSection - 1);
+        scrollToSection(currentSection - 1, true);
       }
     });
 
     $('.scroll-down').on('click', function() {
       if (currentSection < sections.length - 1) {
-        scrollToSection(currentSection + 1);
+        scrollToSection(currentSection + 1, true);
       }
-    });
-
-    // Wheel scroll handling
-    let wheelTimeout;
-    $(window).on('wheel', function(e) {
-      if (isScrolling) return;
-      
-      clearTimeout(wheelTimeout);
-      wheelTimeout = setTimeout(function() {
-        const delta = e.originalEvent.deltaY;
-        
-        if (delta > 0 && currentSection < sections.length - 1) {
-          // Scroll down
-          scrollToSection(currentSection + 1);
-        } else if (delta < 0 && currentSection > 0) {
-          // Scroll up
-          scrollToSection(currentSection - 1);
-        }
-      }, 50);
     });
 
     // Update scroll indicator
@@ -69,6 +121,13 @@
       const sectionName = sections[currentSection] === 'home' ? 'Home' : 
                          sections[currentSection].charAt(0).toUpperCase() + sections[currentSection].slice(1);
       $('.current-section').text(sectionName);
+      
+      // Update navigation text
+      const upText = currentSection > 0 ? sections[currentSection - 1].charAt(0).toUpperCase() + sections[currentSection - 1].slice(1) : '';
+      const downText = currentSection < sections.length - 1 ? sections[currentSection + 1].charAt(0).toUpperCase() + sections[currentSection + 1].slice(1) : '';
+      
+      $('.-up').text(upText);
+      $('.-down').text(downText);
       
       // Show/hide scroll arrows
       $('.scroll-up').toggle(currentSection > 0);
@@ -83,32 +142,62 @@
     }
 
     // Detect current section on manual scroll
-    let scrollTimeout;
-    $(window).on('scroll', function() {
+    $(window).on('scroll', throttle(function() {
       if (isScrolling) return;
       
-      clearTimeout(scrollTimeout);
-      scrollTimeout = setTimeout(function() {
-        const scrollTop = $(window).scrollTop();
-        const windowHeight = $(window).height();
-        
-        // Determine current section based on scroll position
-        if (scrollTop < windowHeight * 0.5) {
-          currentSection = 0;
-        } else {
-          for (let i = 1; i < sections.length; i++) {
-            const sectionTop = $(`#${sections[i]}`).offset().top;
-            const sectionBottom = sectionTop + $(`#${sections[i]}`).outerHeight();
+      const scrollTop = $(window).scrollTop();
+      const windowHeight = $(window).height();
+      
+      // Determine current section based on scroll position
+      let newSection = currentSection;
+      
+      if (scrollTop < windowHeight * 0.3) {
+        newSection = 0;
+      } else {
+        for (let i = 1; i < sections.length; i++) {
+          const sectionElement = $(`#${sections[i]}`);
+          if (sectionElement.length) {
+            const sectionTop = sectionElement.offset().top;
+            const sectionBottom = sectionTop + sectionElement.outerHeight();
             
-            if (scrollTop >= sectionTop - windowHeight * 0.5 && scrollTop < sectionBottom - windowHeight * 0.5) {
-              currentSection = i;
+            if (scrollTop >= sectionTop - windowHeight * 0.3 && scrollTop < sectionBottom - windowHeight * 0.3) {
+              newSection = i;
               break;
             }
           }
         }
+      }
+      
+      if (newSection !== currentSection) {
+        currentSection = newSection;
         updateScrollIndicator();
-      }, 100);
-    });
+      }
+      
+      checkSectionEnd();
+      
+      // Handle mobile scroll indicator visibility
+      handleMobileScrollIndicator();
+    }, 16));
+
+    // Mobile scroll indicator handling
+    function handleMobileScrollIndicator() {
+      if ($(window).width() <= 768) {
+        const scrollIndicator = $('.scroll-indicator');
+        
+        // Clear existing timeout
+        clearTimeout(scrollIndicator.data('hideTimeout'));
+        
+        // Show indicator
+        scrollIndicator.addClass('visible');
+        
+        // Set timeout to hide after 2 seconds of no scrolling
+        const hideTimeout = setTimeout(() => {
+          scrollIndicator.removeClass('visible');
+        }, 2000);
+        
+        scrollIndicator.data('hideTimeout', hideTimeout);
+      }
+    }
 
     // Animate sections on scroll
     function animateSections() {
@@ -124,7 +213,7 @@
       });
     }
 
-    $(window).on('scroll', animateSections);
+    $(window).on('scroll', throttle(animateSections, 16));
     animateSections(); // Initial call
   }
 
@@ -136,9 +225,9 @@
     if (hash) {
       const sectionIndex = sections.indexOf(hash.substring(1));
       if (sectionIndex !== -1) {
-        scrollToSection(sectionIndex);
+        scrollToSection(sectionIndex, true);
       } else if (hash === '#header') {
-        scrollToSection(0);
+        scrollToSection(0, true);
       }
       
       // Update active menu item
@@ -154,7 +243,7 @@
     }
   });
 
-  // ==== Mobile Navigation ====
+  // Mobile Navigation
   if ($('.nav-menu').length) {
     var $mobile_nav = $('.nav-menu').clone().prop({
       class: 'mobile-nav d-lg-none'
@@ -183,13 +272,13 @@
     $(".mobile-nav, .mobile-nav-toggle").hide();
   }
 
-  // ==== jQuery counterUp ====
+  // jQuery counterUp
   $('[data-toggle="counter-up"]').counterUp({
     delay: 10,
     time: 1000
   });
 
-  // ==== Skills section ====
+  // Skills section
   $('.skills-content').waypoint(function() {
     $('.progress .progress-bar').each(function() {
       $(this).css("width", $(this).attr("aria-valuenow") + '%');
@@ -198,7 +287,7 @@
     offset: '80%'
   });
 
-  // ==== Testimonials carousel (uses the Owl Carousel library) ====
+  // Testimonials carousel
   $(".testimonials-carousel").owlCarousel({
     autoplay: true,
     dots: true,
@@ -216,10 +305,10 @@
     }
   });
 
-  // ==== Porfolio isotope and filter ====
+  // Portfolio isotope and filter
   $(window).on('load', function() {
-    // Initialize parallax scroll
-    initParallaxScroll();
+    // Initialize smooth scroll
+    initSmoothScroll();
     
     var portfolioIsotope = $('.portfolio-container').isotope({
       itemSelector: '.portfolio-item',
@@ -234,10 +323,9 @@
         filter: $(this).data('filter')
       });
     });
-
   });
 
-  // ==== Initiate venobox (lightbox feature used in portofilo) ====
+  // Initiate venobox
   $(document).ready(function() {
     $('.venobox').venobox();
     
