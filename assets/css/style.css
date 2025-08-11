@@ -402,7 +402,7 @@ section .container {
   color: #12d640;
   animation: bounce 2s infinite;
   margin: 5px 0;
-  width: 72%;
+  width: 55%;
 }
 
 .scroll-text {
@@ -1326,6 +1326,10 @@ html {
   display: flex;
   flex-direction: column;
   width: 100%;
+}
+
+.about-me-cover li {
+  color: var(--lynx);
 }
 
 .icon-box {
