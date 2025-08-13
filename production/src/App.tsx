@@ -19,7 +19,7 @@ const AppContent: React.FC = () => {
   const location = useLocation();
 
   useEffect(() => {
-    const sectionMap: { [key: string]: string } = {
+    /*const sectionMap: { [key: string]: string } = {
       '/': 'Home',
       '/education': 'Education',
       '/skills': 'Skills',
@@ -27,9 +27,18 @@ const AppContent: React.FC = () => {
       '/work': 'Work Experience',
       '/client-work': 'Client Work',
       '/contact': 'Contact',
+    };*/
+    const sectionMap: { [key: string]: string } = {
+      '': 'Home',
+      '#education': 'Education',
+      '#skills': 'Skills',
+      '#services': 'Services',
+      '#work': 'Work Experience',
+      '#client-work': 'Client Work',
+      '#contact': 'Contact',
     };
     
-    setCurrentSection(sectionMap[location.pathname] || 'Home');
+    setCurrentSection(sectionMap[location.hash] || 'Home');
   }, [location]);
 
   useEffect(() => {
