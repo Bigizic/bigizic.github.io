@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import { RiMenuFill } from "react-icons/ri";
 
 interface ScrollIndicatorProps {
   currentSection: string;
@@ -16,10 +17,6 @@ const ScrollIndicator: React.FC<ScrollIndicatorProps> = ({ currentSection }) => 
 
   const isDragging = useRef(false);
   const dragOffset = useRef({ x: 0, y: 0 });
-  const scrollRef = useRef<HTMLDivElement>(null);
-  const isHorizontalDragging = useRef(false);
-  const horizDragStart = useRef(0);
-  const horizScrollStart = useRef(0);
 
   const navItems = [
     { name: 'Home', path: '#' },
@@ -56,52 +53,39 @@ const ScrollIndicator: React.FC<ScrollIndicatorProps> = ({ currentSection }) => 
   }, [dismissed]);
 
   const handleDragStart = (clientX: number, clientY: number) => {
-    if (!menuOpen) {
-      isDragging.current = true;
-      dragOffset.current = { x: clientX - position.x, y: clientY - position.y };
-    }
+    isDragging.current = true;
+    dragOffset.current = {
+      x: clientX - (menuOpen ? position.xx : position.x),
+      y: clientY - position.y,
+    };
   };
 
   const handleDragMove = (clientX: number, clientY: number) => {
-    if (!menuOpen && isDragging.current) {
-      let newX = clientX - dragOffset.current.x;
-      newX = Math.max(0, Math.min(newX, window.innerWidth - 60));
-      setPosition({
-        x: newX,
-        xx: position.xx,
-        y: Math.max(20, Math.min(clientY - dragOffset.current.y, window.innerHeight - 120)),
-      });
-    }
+    if (!isDragging.current) return;
+    let newX = clientX - dragOffset.current.x;
+    newX = Math.max(0, Math.min(newX, menuOpen ? window.innerWidth - 200 : window.innerWidth - 60));
+    setPosition({
+      x: menuOpen ? position.x : newX,
+      xx: menuOpen ? newX : position.xx,
+      y: Math.max(20, Math.min(clientY - dragOffset.current.y, window.innerHeight - 120)),
+    });
   };
 
   const handleDragEnd = () => {
-    if (!menuOpen) {
-      isDragging.current = false;
-      setPosition((pos) => ({
-        x: pos.x < window.innerWidth / 2 ? 0 : window.innerWidth - 60,
-        xx: pos.xx,
-        y: pos.y
-      }));
-    }
-  };
-
-  const handleHorizontalDragStart = (clientX: number) => {
-    if (scrollRef.current) {
-      isHorizontalDragging.current = true;
-      horizDragStart.current = clientX;
-      horizScrollStart.current = scrollRef.current.scrollLeft;
-    }
-  };
-
-  const handleHorizontalDragMove = (clientX: number) => {
-    if (isHorizontalDragging.current && scrollRef.current) {
-      const delta = horizDragStart.current - clientX;
-      scrollRef.current.scrollLeft = horizScrollStart.current + delta;
-    }
-  };
-
-  const handleHorizontalDragEnd = () => {
-    isHorizontalDragging.current = false;
+    isDragging.current = false;
+    setPosition((pos) => ({
+      x: menuOpen
+        ? pos.x
+        : pos.x < window.innerWidth / 2
+        ? 0
+      : window.innerWidth - 60,
+      xx: menuOpen
+        ? pos.xx < window.innerWidth / 2
+        ? 0
+        : window.innerWidth - 200
+      : pos.xx,
+      y: pos.y,
+    }));
   };
 
   const handleScrollToSection = (id: string) => {
@@ -119,7 +103,7 @@ const ScrollIndicator: React.FC<ScrollIndicatorProps> = ({ currentSection }) => 
         left: menuOpen ? `${position.xx}px` : `${position.x}px`,
         top: `${position.y}px`,
         zIndex: 50,
-        cursor: !menuOpen ? "grab" : "default",
+        cursor: "grab",
         touchAction: "none",
         transition: isDragging.current ? "none" : "transform 0.2s ease, opacity 0.2s ease",
       }}
@@ -134,43 +118,30 @@ const ScrollIndicator: React.FC<ScrollIndicatorProps> = ({ currentSection }) => 
       {!menuOpen ? (
         <button
           onClick={() => setMenuOpen(true)}
-          className="flex items-center justify-center w-12 h-12 rounded-full bg-accent text-white text-xl font-bold hover:scale-110 transition-transform"
+          className="flex items-center justify-center w-12 h-12 rounded-full bg-accent text-white text-xl font-bold hover:scale-110 transition-all"
         >
-          ☰
+          <RiMenuFill size={20}/>
         </button>
       ) : (
-        <div
-          className="flex flex-col items-center bg-white/10 backdrop-blur-md rounded-3xl p-4 opacity-90 w-48"
-        >
+        <div className="flex flex-col items-center bg-white/10 backdrop-blur-md rounded-3xl p-4 opacity-90 w-48">
           <button
             onClick={() => setMenuOpen(false)}
             className="self-end text-white text-lg font-bold mb-2 hover:text-accent"
           >
             ✕
           </button>
-          <div
-            className="flex overflow-x-auto w-full space-x-2"
-            ref={scrollRef}
-            onMouseDown={(e) => handleHorizontalDragStart(e.clientX)}
-            onMouseMove={(e) => handleHorizontalDragMove(e.clientX)}
-            onMouseUp={handleHorizontalDragEnd}
-            onMouseLeave={handleHorizontalDragEnd}
-            onTouchStart={(e) => handleHorizontalDragStart(e.touches[0].clientX)}
-            onTouchMove={(e) => handleHorizontalDragMove(e.touches[0].clientX)}
-            onTouchEnd={handleHorizontalDragEnd}
-          >
-            {navItems.map((item) => (
-              <button
-                key={item.name}
-                onClick={() => handleScrollToSection(item.path)}
-                className={`text-white uppercase text-xs mb-1 px-4 py-2 rounded hover:bg-accent/20 flex-shrink-0 ${
-                  currentSection === item.name ? "bg-accent scale-105" : ""
-                }`}
-              >
-                {item.name}
-              </button>
-            ))}
-          </div>
+          {navItems.map((item) => (
+            <button
+              data-aos={position.xx <= 0 ? "fade-right" : "fade-left"}
+              key={item.name}
+              onClick={() => handleScrollToSection(item.path)}
+              className={`text-white uppercase text-xs mb-1 px-4 py-2 rounded hover:bg-accent/20 transition-all ${
+                currentSection === item.name ? "bg-accent text-white scale-105" : ""
+              }`}
+            >
+              {item.name}
+            </button>
+          ))}
         </div>
       )}
     </div>

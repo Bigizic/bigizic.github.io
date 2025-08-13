@@ -76,7 +76,7 @@ const ScrollIndicator: React.FC<ScrollIndicatorProps> = ({ currentSection }) => 
     setPosition((pos) => {
       const snapX = pos.x < window.innerWidth / 2 ? 0 : window.innerWidth - 60;
       const newPos = { x: snapX, y: pos.y };
-      //localStorage.setItem("scrollIndicatorPos", JSON.stringify(newPos));
+      localStorage.setItem("scrollIndicatorPos", JSON.stringify(newPos));
       return newPos;
     });
   };
