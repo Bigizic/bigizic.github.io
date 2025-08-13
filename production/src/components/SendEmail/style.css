@@ -1,0 +1,39 @@
+/* style.css */
+
+/* Overlay background */
+.email-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6); /* dim background */
+  backdrop-filter: blur(4px); /* blur background */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+/* Container for loading and status messages */
+.email-overlay-content {
+  background: white;
+  padding: 1.5rem 2rem;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+/* Paper plane animation */
+@keyframes fly {
+  0% { transform: translateX(0) rotate(0deg); }
+  50% { transform: translateX(8px) rotate(10deg); }
+  100% { transform: translateX(0) rotate(0deg); }
+}
+.animate-plane {
+  animation: fly 0.6s infinite ease-in-out;
+}
