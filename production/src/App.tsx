@@ -76,15 +76,13 @@ const AppContent: React.FC = () => {
     <div className="bg-primary-dark text-white">
       <Header />
       <main className="relative">
-        <Routes>
-          <Route path="/" element={<About />} />
-          <Route path="/education" element={<Education />} />
-          <Route path='/skills' element={<Skills />} />
-          <Route path="/services" element={<Services />} />
-          <Route path="/work" element={<Work />} />
-          <Route path="/client-work" element={<ClientWork />} />
-          <Route path="/contact" element={<Contact />} />
-        </Routes>
+        <About />
+        <Education />
+        <Skills />
+        <Services />
+        <Work />
+        <ClientWork />
+        <Contact />
       </main>
       {isMobile && <ScrollIndicator currentSection={currentSection} />}
     </div>
