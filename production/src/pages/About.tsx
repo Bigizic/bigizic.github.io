@@ -16,7 +16,7 @@ const About: React.FC = () => {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div data-aos="fade-right">
             <img
-              src="https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=500"
+              src="https://res.cloudinary.com/dduai6ryd/image/upload/isaac.png"
               alt="Profile"
               className="w-full max-w-md mx-auto rounded-lg shadow-2xl"
             />
