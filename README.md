@@ -1,2 +1,0 @@
-# bigizic.github.io
-Portfolio
