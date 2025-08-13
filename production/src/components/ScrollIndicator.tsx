@@ -6,82 +6,20 @@ interface ScrollIndicatorProps {
 
 const ScrollIndicator: React.FC<ScrollIndicatorProps> = ({ currentSection }) => {
   const [isVisible, setIsVisible] = useState(false);
-  const [position, setPosition] = useState<{ x: number; y: number }>({
-    x: window.innerWidth - 80, // default right side
+  const [position, setPosition] = useState<{ x: number; xx: number; y: number }>({
+    x: window.innerWidth - 60, // menu icon
+    xx: window.innerWidth - 200, // menu items container
     y: window.innerHeight * 0.5,
   });
   const [dismissed, setDismissed] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const isDragging = useRef(false);
   const dragOffset = useRef({ x: 0, y: 0 });
-
-  useEffect(() => {
-    const savedPos = localStorage.getItem("scrollIndicatorPos");
-    if (savedPos) {
-      setPosition(JSON.parse(savedPos));
-    }
-
-    const handleScroll = () => {
-      if (window.scrollY > 1) {
-        setIsVisible(true);
-
-        // If dismissed, bring back & snap to nearest edge
-        if (dismissed) {
-          setDismissed(false);
-          setPosition((pos) => {
-            const snapX =
-              pos.x < window.innerWidth / 2 ? 0 : window.innerWidth - 60;
-            const newPos = { x: snapX, y: pos.y };
-            localStorage.setItem("scrollIndicatorPos", JSON.stringify(newPos));
-            return newPos;
-          });
-        }
-      } else {
-        setIsVisible(false);
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, [dismissed]);
-
-  const handleDragStart = (clientX: number, clientY: number) => {
-    isDragging.current = true;
-    dragOffset.current = {
-      x: clientX - position.x,
-      y: clientY - position.y,
-    };
-  };
-
-  const handleDragMove = (clientX: number, clientY: number) => {
-    if (!isDragging.current) return;
-    setPosition({
-      x: clientX - dragOffset.current.x,
-      y: Math.max(20, Math.min(clientY - dragOffset.current.y, window.innerHeight - 120)),
-    });
-  };
-
-  const handleDragEnd = () => {
-    isDragging.current = false;
-
-    // If swiped almost completely off screen → hide until scroll
-    if (position.x < -40 || position.x > window.innerWidth - 40) {
-      setDismissed(true);
-      return;
-    }
-
-    // Snap to left or right edge with no gap
-    setPosition((pos) => {
-      const snapX = pos.x < window.innerWidth / 2 ? 0 : window.innerWidth - 60;
-      const newPos = { x: snapX, y: pos.y };
-      localStorage.setItem("scrollIndicatorPos", JSON.stringify(newPos));
-      return newPos;
-    });
-  };
-
-  if (!isVisible || dismissed) return null;
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const isHorizontalDragging = useRef(false);
+  const horizDragStart = useRef(0);
+  const horizScrollStart = useRef(0);
 
   const navItems = [
     { name: 'Home', path: '#' },
@@ -93,52 +31,148 @@ const ScrollIndicator: React.FC<ScrollIndicatorProps> = ({ currentSection }) => 
     { name: 'Contact', path: '#contact' },
   ];
 
-  const handleScrollToSection = (id: string) => {
-    const section = document.querySelector(id.startsWith("#") ? id : `#${id}`);
-    if (section) {
-      section.scrollIntoView({ behavior: "smooth" });
+  useEffect(() => {
+    const savedPos = localStorage.getItem("scrollIndicatorPos");
+    if (savedPos) setPosition(JSON.parse(savedPos));
+
+    const handleScroll = () => {
+      if (window.scrollY > 1) {
+        setIsVisible(true);
+        if (dismissed) {
+          setDismissed(false);
+          setPosition((pos) => ({
+            x: pos.x < window.innerWidth / 2 ? 0 : window.innerWidth - 60,
+            xx: pos.xx < window.innerWidth / 2 ? 0 : window.innerWidth - 200,
+            y: pos.y
+          }));
+        }
+      } else {
+        setIsVisible(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [dismissed]);
+
+  const handleDragStart = (clientX: number, clientY: number) => {
+    if (!menuOpen) {
+      isDragging.current = true;
+      dragOffset.current = { x: clientX - position.x, y: clientY - position.y };
     }
   };
+
+  const handleDragMove = (clientX: number, clientY: number) => {
+    if (!menuOpen && isDragging.current) {
+      let newX = clientX - dragOffset.current.x;
+      newX = Math.max(0, Math.min(newX, window.innerWidth - 60));
+      setPosition({
+        x: newX,
+        xx: position.xx,
+        y: Math.max(20, Math.min(clientY - dragOffset.current.y, window.innerHeight - 120)),
+      });
+    }
+  };
+
+  const handleDragEnd = () => {
+    if (!menuOpen) {
+      isDragging.current = false;
+      setPosition((pos) => ({
+        x: pos.x < window.innerWidth / 2 ? 0 : window.innerWidth - 60,
+        xx: pos.xx,
+        y: pos.y
+      }));
+    }
+  };
+
+  const handleHorizontalDragStart = (clientX: number) => {
+    if (scrollRef.current) {
+      isHorizontalDragging.current = true;
+      horizDragStart.current = clientX;
+      horizScrollStart.current = scrollRef.current.scrollLeft;
+    }
+  };
+
+  const handleHorizontalDragMove = (clientX: number) => {
+    if (isHorizontalDragging.current && scrollRef.current) {
+      const delta = horizDragStart.current - clientX;
+      scrollRef.current.scrollLeft = horizScrollStart.current + delta;
+    }
+  };
+
+  const handleHorizontalDragEnd = () => {
+    isHorizontalDragging.current = false;
+  };
+
+  const handleScrollToSection = (id: string) => {
+    const section = document.querySelector(id.startsWith("#") ? id : `#${id}`);
+    if (section) section.scrollIntoView({ behavior: "smooth" });
+    setMenuOpen(false);
+  };
+
+  if (!isVisible || dismissed) return null;
 
   return (
     <div
       style={{
         position: "fixed",
-        left: `${position.x}px`,
+        left: menuOpen ? `${position.xx}px` : `${position.x}px`,
         top: `${position.y}px`,
         zIndex: 50,
-        cursor: "grab",
+        cursor: !menuOpen ? "grab" : "default",
         touchAction: "none",
         transition: isDragging.current ? "none" : "transform 0.2s ease, opacity 0.2s ease",
       }}
-      className={`flex flex-col items-center bg-white/10 backdrop-blur-md rounded-3xl p-5 pl-4 pr-4 opacity-70 hover:opacity-100 hover:bg-white/15`}
       onMouseDown={(e) => handleDragStart(e.clientX, e.clientY)}
       onMouseMove={(e) => handleDragMove(e.clientX, e.clientY)}
       onMouseUp={handleDragEnd}
-      onMouseLeave={() => {
-        if (isDragging.current) handleDragEnd();
-      }}
+      onMouseLeave={() => isDragging.current && handleDragEnd()}
       onTouchStart={(e) => handleDragStart(e.touches[0].clientX, e.touches[0].clientY)}
       onTouchMove={(e) => handleDragMove(e.touches[0].clientX, e.touches[0].clientY)}
       onTouchEnd={handleDragEnd}
     >
-      {navItems.map((item) => (
+      {!menuOpen ? (
         <button
-          key={item.name}
-          onClick={() => handleScrollToSection(item.name.toLowerCase().replace(/\s+/g, "-"))}
-          className={`flex flex-col items-center p-2 rounded-xl transition-all duration-300 mb-1 
-            ${
-              currentSection === item.name
-                ? "bg-accent text-white scale-110"
-                : "text-white hover:bg-accent/20 hover:scale-105"
-            }
-          `}
+          onClick={() => setMenuOpen(true)}
+          className="flex items-center justify-center w-12 h-12 rounded-full bg-accent text-white text-xl font-bold hover:scale-110 transition-transform"
         >
-          <span className="text-xs uppercase tracking-wider writing-mode-vertical">
-            <a href={item.path} >{item.name}</a>
-          </span>
+          ☰
         </button>
-      ))}
+      ) : (
+        <div
+          className="flex flex-col items-center bg-white/10 backdrop-blur-md rounded-3xl p-4 opacity-90 w-48"
+        >
+          <button
+            onClick={() => setMenuOpen(false)}
+            className="self-end text-white text-lg font-bold mb-2 hover:text-accent"
+          >
+            ✕
+          </button>
+          <div
+            className="flex overflow-x-auto w-full space-x-2"
+            ref={scrollRef}
+            onMouseDown={(e) => handleHorizontalDragStart(e.clientX)}
+            onMouseMove={(e) => handleHorizontalDragMove(e.clientX)}
+            onMouseUp={handleHorizontalDragEnd}
+            onMouseLeave={handleHorizontalDragEnd}
+            onTouchStart={(e) => handleHorizontalDragStart(e.touches[0].clientX)}
+            onTouchMove={(e) => handleHorizontalDragMove(e.touches[0].clientX)}
+            onTouchEnd={handleHorizontalDragEnd}
+          >
+            {navItems.map((item) => (
+              <button
+                key={item.name}
+                onClick={() => handleScrollToSection(item.path)}
+                className={`text-white uppercase text-xs mb-1 px-4 py-2 rounded hover:bg-accent/20 flex-shrink-0 ${
+                  currentSection === item.name ? "bg-accent scale-105" : ""
+                }`}
+              >
+                {item.name}
+              </button>
+            ))}
+          </div>
+        </div>
+      )}
     </div>
   );
 };
