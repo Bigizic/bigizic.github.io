@@ -11,6 +11,7 @@ import ClientWork from './pages/ClientWork';
 import Contact from './pages/Contact';
 import Skills from './pages/Skills';
 import Work from './pages/Work';
+import Home from './pages/Home';
 
 const AppContent: React.FC = () => {
   const [currentSection, setCurrentSection] = useState('Home');
@@ -76,6 +77,7 @@ const AppContent: React.FC = () => {
     <div className="bg-primary-dark text-white">
       <Header />
       <main className="relative">
+        <Home />
         <Education />
         <Skills />
         <Services />

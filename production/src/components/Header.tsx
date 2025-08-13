@@ -30,7 +30,7 @@ const Header: React.FC = () => {
   }, []);
 
   const navItems = [
-    { name: 'About', path: '#' },
+    { name: 'Home', path: '#' },
     { name: 'Education', path: '#education' },
     { name: 'Skills', path: '#skills' },
     { name: 'Services', path: '#services' },
@@ -89,8 +89,8 @@ const Header: React.FC = () => {
             <ul className="flex space-x-8">
               {navItems.map((item) => (
                 <li key={item.name}>
-                  <Link
-                    to={item.path}
+                  <a
+                    href={item.path}
                     className={`text-sm font-medium text-third-color hover:text-accent transition-colors relative ${
                       location.pathname === item.path ? 'text-accent' : ''
                     }`}
@@ -99,7 +99,7 @@ const Header: React.FC = () => {
                     <span className={`absolute bottom-0 left-0 h-0.5 bg-accent transition-all duration-300 ${
                       location.pathname === item.path ? 'w-6' : 'w-0 hover:w-6'
                     }`}></span>
-                  </Link>
+                  </a>
                 </li>
               ))}
             </ul>
@@ -127,14 +127,14 @@ const Header: React.FC = () => {
         <div className="md:hidden absolute top-full left-0 right-0 bg-black/70 backdrop-blur-md border-2 border-white/12 rounded-lg m-4">
           <nav className="p-4">
             {navItems.map((item) => (
-              <Link
+              <a
                 key={item.name}
-                to={item.path}
+                href={item.path}
                 className="block py-3 text-white hover:text-green-600 transition-colors"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 {item.name}
-              </Link>
+              </a>
             ))}
           </nav>
         </div>
