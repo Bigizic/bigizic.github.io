@@ -76,7 +76,6 @@ const AppContent: React.FC = () => {
     <div className="bg-primary-dark text-white">
       <Header />
       <main className="relative">
-        <About />
         <Education />
         <Skills />
         <Services />
