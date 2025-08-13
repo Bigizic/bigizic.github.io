@@ -8,7 +8,7 @@ const ScrollIndicator: React.FC<ScrollIndicatorProps> = ({ currentSection }) => 
   const [isVisible, setIsVisible] = useState(false);
   const [position, setPosition] = useState<{ x: number; y: number }>({
     x: window.innerWidth - 80, // default right side
-    y: window.innerHeight * 0.7,
+    y: window.innerHeight * 0.5,
   });
   const [dismissed, setDismissed] = useState(false);
 
@@ -76,7 +76,7 @@ const ScrollIndicator: React.FC<ScrollIndicatorProps> = ({ currentSection }) => 
     setPosition((pos) => {
       const snapX = pos.x < window.innerWidth / 2 ? 0 : window.innerWidth - 60;
       const newPos = { x: snapX, y: pos.y };
-      localStorage.setItem("scrollIndicatorPos", JSON.stringify(newPos));
+      //localStorage.setItem("scrollIndicatorPos", JSON.stringify(newPos));
       return newPos;
     });
   };
@@ -110,8 +110,10 @@ const ScrollIndicator: React.FC<ScrollIndicatorProps> = ({ currentSection }) => 
         cursor: "grab",
         touchAction: "none",
         transition: isDragging.current ? "none" : "transform 0.2s ease, opacity 0.2s ease",
+        height: '25%',
+        overflowY: 'scroll'
       }}
-      className={`flex flex-col items-center bg-white/10 backdrop-blur-md rounded-3xl p-3 opacity-70 hover:opacity-100 hover:bg-white/15`}
+      className={`flex flex-col gap-3 items-center bg-white/10 backdrop-blur-md rounded-3xl p-10 pl-5 pr-5 opacity-70 hover:opacity-100 hover:bg-white/15`}
       onMouseDown={(e) => handleDragStart(e.clientX, e.clientY)}
       onMouseMove={(e) => handleDragMove(e.clientX, e.clientY)}
       onMouseUp={handleDragEnd}
