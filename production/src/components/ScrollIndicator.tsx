@@ -139,7 +139,9 @@ const ScrollIndicator: React.FC<ScrollIndicatorProps> = ({ currentSection }) => 
                 currentSection === item.name ? "bg-accent text-white scale-105" : ""
               }`}
             >
-              {item.name}
+              <span className="text-xs uppercase tracking-wider writing-mode-vertical">
+                <a href={item.path} >{item.name}</a>
+              </span>
             </button>
           ))}
         </div>
