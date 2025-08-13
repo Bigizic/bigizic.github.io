@@ -111,7 +111,7 @@ const ScrollIndicator: React.FC<ScrollIndicatorProps> = ({ currentSection }) => 
         touchAction: "none",
         transition: isDragging.current ? "none" : "transform 0.2s ease, opacity 0.2s ease",
       }}
-      className={`flex flex-col gap-1 items-center bg-white/10 backdrop-blur-md rounded-3xl p-7 opacity-70 hover:opacity-100 hover:bg-white/15`}
+      className={`flex flex-col items-center bg-white/10 backdrop-blur-md rounded-3xl p-5 opacity-70 hover:opacity-100 hover:bg-white/15`}
       onMouseDown={(e) => handleDragStart(e.clientX, e.clientY)}
       onMouseMove={(e) => handleDragMove(e.clientX, e.clientY)}
       onMouseUp={handleDragEnd}
