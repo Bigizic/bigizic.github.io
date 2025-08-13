@@ -1,5 +1,15 @@
 import React from 'react';
 import { Cake, Calendar, MapPin, GraduationCap, Mail, Briefcase } from "lucide-react";
+import {
+  RiGlobalLine,
+  RiDatabase2Line,
+  RiServerFill,
+  RiCodeBoxFill,
+  RiCodeSSlashFill,
+  RiBarChartBoxLine,
+  RiFileList3Line,
+  RiTerminalBoxFill
+} from "react-icons/ri";
 
 const About: React.FC = () => {
   return (
@@ -70,7 +80,50 @@ const About: React.FC = () => {
           </div>
         </div>
 
-        
+        <div className="interests container mt-12 md:pl-10 md:pr-10">
+          <div className="section-title mb-6">
+            <h2 className="text-2xl text-white font-bold mb-4">Interests</h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="icon-box text-center">
+              <RiGlobalLine size={36} color="#ffbb2c" className="mx-auto mb-2" />
+              <h3 className="text-white">Full Stack Development</h3>
+            </div>
+            <div className="icon-box text-center">
+              <RiGlobalLine size={36} color="#2954ff" className="mx-auto mb-2" />
+              <h3 className="text-white">Cyber Security</h3>
+            </div>
+            <div className="icon-box text-center">
+              <RiDatabase2Line size={36} color="#5578ff" className="mx-auto mb-2" />
+              <h3 className="text-white">Machine Learning</h3>
+            </div>
+            <div className="icon-box text-center">
+              <RiServerFill size={36} color="#e80368" className="mx-auto mb-2" />
+              <h3 className="text-white">Web Servers & Containerization</h3>
+            </div>
+            <div className="icon-box text-center">
+              <RiCodeBoxFill size={36} color="#1c7d32" className="mx-auto mb-2" />
+              <h3 className="text-white">Software Testing<sub>&nbsp;(Unit tests, Doc tests...)</sub></h3>
+            </div>
+            <div className="icon-box text-center">
+              <RiCodeSSlashFill size={36} color="#28a745" className="mx-auto mb-2" />
+              <h3 className="text-white">Software Engineering</h3>
+            </div>
+            <div className="icon-box text-center">
+              <RiBarChartBoxLine size={36} color="#f1081f" className="mx-auto mb-2" />
+              <h3 className="text-white">GPTs</h3>
+            </div>
+            <div className="icon-box text-center">
+              <RiFileList3Line size={36} color="#47aeff" className="mx-auto mb-2" />
+              <h3 className="text-white">Algorithms & Data Structures</h3>
+            </div>
+            <div className="icon-box text-center">
+              <RiTerminalBoxFill size={36} color="#ffc107" className="mx-auto mb-2" />
+              <h3 className="text-white">Linux, Shell Scripting</h3>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );

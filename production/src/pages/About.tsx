@@ -70,7 +70,72 @@ const About: React.FC = () => {
           </div>
         </div>
 
+    <div className="interests container">
+      <div className="section-title">
+        <h2>Interests</h2>
+      </div>
+
+      <div className="row">
+        <div className="col-lg-3 col-md-4">
+          <div className="icon-box">
+            <i className="ri-global-line" style={{ color: "#ffbb2c" }}></i>
+            <h3>Full Stack Development</h3>
+          </div>
+        </div>
+        <div className="col-lg-3 col-md-4 mt-4 mt-md-4">
+          <div className="icon-box">
+            <i className="ri-global-line" style={{ color: "#2954ff" }}></i>
+            <h3>Cyber security</h3>
+          </div>
+        </div>
+        <div className="col-lg-3 col-md-4 mt-4 mt-md-0">
+          <div className="icon-box">
+            <i className="ri-database-2-line" style={{ color: "#5578ff" }}></i>
+            <h3>Machine Learning</h3>
+          </div>
+        </div>
+
+        <div className="col-lg-3 col-md-4 mt-4 mt-md-0">
+          <div className="icon-box">
+            <i className="ri-server-fill" style={{ color: "#e80368" }}></i>
+            <h3>Web Servers & Containerization</h3>
+          </div>
+        </div>
+
+        <div className="col-lg-3 col-md-4 mt-4 mt-lg-4">
+          <div className="icon-box">
+            <i className="ri-code-box-fill" style={{ color: "#1c7d32" }}></i>
+            <h3>Software Testing<sub>&nbsp; &nbsp;(Unit tests, Doc tests...)</sub> </h3>
+          </div>
+        </div>
         
+        <div className="col-lg-3 col-md-4 mt-4">
+          <div className="icon-box">
+            <i className="ri-code-s-slash-fill" style={{ color: "#28a745" }}></i>
+            <h3>Software Engineering</h3>
+          </div>
+        </div>
+        <div className="col-lg-3 col-md-4 mt-4">
+          <div className="icon-box">
+            <i className="ri-bar-chart-box-line" style={{ color: "#f1081f" }}></i>
+            <h3>GPTs</h3>
+          </div>
+        </div>
+        <div className="col-lg-3 col-md-4 mt-4">
+          <div className="icon-box">
+            <i className="ri-file-list-3-line" style={{ color: "#47aeff" }}></i>
+            <h3>Algorithms & Data Structures</h3>
+          </div>
+        </div>
+        <div className="col-lg-3 col-md-4 mt-4">
+          <div className="icon-box">
+            <i className="ri-terminal-box-fill" style={{ color: "#ffc107" }}></i>
+            <h3>Linux, Shell Scripting</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+
       </div>
     </section>
   );
