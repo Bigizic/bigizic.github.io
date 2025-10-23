@@ -25,11 +25,12 @@ const Home: React.FC = () => {
 
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div data-aos="fade-right">
-            <img
+          <div className="h-[420px] md:h-[640px] w-full max-w-md mx-auto rounded-[50%] md:rounded-lg shadow-2xl bg-[url('https://res.cloudinary.com/dduai6ryd/image/upload/isaac.png')] bg-cover bg-top md:bg-center"></div>
+            {/*<img
               src="https://res.cloudinary.com/dduai6ryd/image/upload/isaac.png"
               alt="Profile"
               className="w-full max-w-md mx-auto rounded-lg shadow-2xl"
-            />
+            />*/}
           </div>
 
           <div data-aos="fade-left">
