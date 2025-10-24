@@ -43,7 +43,7 @@ const Header: React.FC = () => {
     <header 
       id="header" 
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${
-        'h-20 bg-primary-dark/95 backdrop-blur-md'
+        'h-20 bg-primary-dark/1 backdrop-blur-sm'
       }`}
     >
       <div className="container mx-auto px-4 h-full flex items-center">

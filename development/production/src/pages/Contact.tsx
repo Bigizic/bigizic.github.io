@@ -31,7 +31,7 @@ const Contact: React.FC = () => {
 
   return (
     <section id="contact" className="contact h-100 py-20 pt-32 md:pt-25">
-      <div className="container mx-auto px-4 pl-10 pr-10">
+      <div className="container mx-auto px-4 md:pl-10  md:pr-10">
         <div className="text-center mb-16" data-aos="fade-up">
           <h2
             data-aos="fade-right"

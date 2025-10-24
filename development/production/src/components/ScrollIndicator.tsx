@@ -22,7 +22,7 @@ const ScrollIndicator: React.FC<ScrollIndicatorProps> = ({ currentSection }) => 
     { name: 'Home', path: '#' },
     { name: 'Education', path: '#education' },
     { name: 'Skills', path: '#skills' },
-    { name: 'Services', path: '#services' },
+    // { name: 'Services', path: '#services' },
     { name: 'Work Experience', path: '#work' },
     { name: 'Client Work', path: '#client-work' },
     { name: 'Contact', path: '#contact' },
@@ -123,7 +123,7 @@ const ScrollIndicator: React.FC<ScrollIndicatorProps> = ({ currentSection }) => 
           <RiMenuFill size={20}/>
         </button>
       ) : (
-        <div className="flex flex-col items-center bg-white/10 backdrop-blur-md rounded-3xl p-4 opacity-90 w-48">
+        <div className="flex flex-col items-center bg-white/1 backdrop-blur-md rounded-3xl p-4 opacity-90 w-48">
           <button
             onClick={() => setMenuOpen(false)}
             className="self-end text-white text-lg font-bold mb-2 hover:text-accent"
@@ -135,7 +135,7 @@ const ScrollIndicator: React.FC<ScrollIndicatorProps> = ({ currentSection }) => 
               data-aos={position.xx <= 0 ? "fade-right" : "fade-left"}
               key={item.name}
               onClick={() => handleScrollToSection(item.path)}
-              className={`text-white uppercase text-xs mb-1 px-4 py-2 rounded hover:bg-accent/20 transition-all ${
+              className={`border border-black/100 text-white uppercase text-xs mb-1 px-4 py-2 rounded hover:bg-accent/20 transition-all ${
                 currentSection === item.name ? "bg-accent text-white scale-105" : ""
               }`}
             >
