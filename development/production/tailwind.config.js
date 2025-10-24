@@ -4,7 +4,8 @@ export default {
   theme: {
     extend: {
       colors: {
-        'primary-dark': '#142D25',
+        /*'primary-dark': '#142D25',*/
+        'primary-dark': '#000000',
         'secondary-color': '#000000',
         'third-color': '#F7DFBA',
         'lynx': '#F7F7F7',

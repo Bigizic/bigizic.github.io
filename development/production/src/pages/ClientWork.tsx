@@ -200,11 +200,11 @@ const ClientWork: React.FC = () => {
                   </h4>
                   <p className="text-lg font-semibold text-accent mb-2">{work.role}</p>
                   <div className="flex items-center gap-4 text-sm text-gray-600">
-                    <div className="flex items-center gap-1">
+                    <div className="flex items-center gap-1 flex-wrap">
                       <Calendar size={16} />
                       <span>{work.duration}</span>
                     </div>
-                    <div className="flex items-center gap-1">
+                    <div className="flex items-center gap-1 flex-wrap">
                       <MapPin size={16} />
                       <span>{work.location}</span>
                     </div>
