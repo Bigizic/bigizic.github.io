@@ -1,6 +1,174 @@
 import React from 'react';
 import { ExternalLink, Calendar, MapPin } from 'lucide-react';
 
+// Client Work Data
+const clientWorksData = [
+  {
+    id: 1,
+    title: "Tohanniees Beauty Booking",
+    url: "https://beauty.tohannieesskincare.com",
+    role: "Full-Stack Developer",
+    duration: "Sep 24, 2025 – Oct 7, 2025",
+    location: "Remote Contract",
+    screenshots: [
+      "/client_work/beauty/dsk1.png",
+      "/client_work/beauty/dsk2.png",
+      "/client_work/beauty/dsk3.png",
+      "/client_work/beauty/dsk4.png",
+      "/client_work/beauty/dsk5.png",
+      "/client_work/beauty/dsk6.png"
+    ],
+    overview: "Developed an appointment booking system for Tohanniees Skincare customers to schedule beauty and skincare consultations. This platform enables clients to easily book, manage, and track their appointments with real-time availability and automated notifications.",
+    achievements: [
+      {
+        title: "Booking System Development",
+        items: [
+          "Built intuitive appointment scheduling interface",
+          "Implemented real-time availability calendar",
+          "Created responsive design for mobile booking",
+          "Integrated automated email confirmations and reminders"
+        ]
+      },
+      {
+        title: "User Experience & Efficiency",
+        items: [
+          "Designed streamlined booking flow for quick appointments",
+          "Implemented time slot selection with availability checks",
+          "Added appointment management and rescheduling features",
+          "Created clean, modern UI focused on ease of use"
+        ]
+      }
+    ],
+    features: [
+      {
+        title: "Booking Features",
+        items: [
+          "Real-time appointment scheduling system",
+          "Interactive calendar with available time slots",
+          "Appointment confirmation and reminders",
+          "Easy rescheduling and cancellation"
+        ]
+      },
+      {
+        title: "Customer Features",
+        items: [
+          "Quick booking with minimal information required",
+          "Automated email notifications",
+          "Appointment history and upcoming bookings",
+          "Service selection for different treatments"
+        ]
+      }
+    ],
+    quote: "This rapid 2-week development showcases my ability to deliver focused, efficient booking solutions that enhance customer experience and streamline business operations."
+  },
+  {
+    id: 2,
+    title: "The Link Hangouts",
+    url: "https://thelinkhangout.com",
+    role: "Full Stack Developer",
+    duration: "Jun 2025 - Jul 2025",
+    location: "Remote Contract",
+    screenshots: [
+      "/client_work/tlh/dsk1.png",
+      "/client_work/tlh/dsk6.png",
+      "/client_work/tlh/dsk7.png",
+      "/client_work/tlh/dsk11.png"
+    ],
+    overview: "Developed a comprehensive event ticketing platform with integrated e-commerce functionality for The Link Hangouts. This full featured web application serves as a complete solution for event management, ticket sales, and merchandise distribution.",
+    achievements: [
+      {
+        title: "Frontend Development",
+        items: [
+          "Built responsive React application with Redux for state management",
+        ]
+      },
+      {
+        title: "Backend & Integration",
+        items: [
+          "Developed RESTful APIs using modern frameworks",
+          "Integrated Paystack payment gateway for secure transactions",
+          "Created automated email campaign system"
+        ]
+      }
+    ],
+    features: [
+      {
+        title: "Event Management",
+        items: [
+          "Event creation and management system",
+          "Ticket booking and reservation system",
+          "Real-time availability tracking",
+          "QR code generation for tickets"
+        ]
+      },
+      {
+        title: "E-commerce Platform",
+        items: [
+          "Merchandise shop with product catalog",
+          "Shopping cart and checkout system",
+          "Inventory management",
+          "Order tracking and fulfillment"
+        ]
+      }
+    ],
+    userFeatures: [
+      {
+        title: "Authentication System",
+        items: [
+          "Secure user registration and login",
+          "Password reset functionality",
+          "Email verification system",
+          "User profile management"
+        ]
+      },
+      {
+        title: "Communication System",
+        items: [
+          "Automated email campaigns",
+          "Welcome and confirmation emails",
+          "Event reminder notifications",
+          "Order confirmation and updates"
+        ]
+      }
+    ],
+    quote: "This project showcases my ability to deliver end-to-end solutions, from initial concept to deployment, while maintaining high code quality and user experience standards."
+  },
+  {
+    id: 3,
+    title: "Tohanniees Skincare",
+    url: "https://tohannieesskincare.com",
+    role: "Full-Stack Developer",
+    duration: "Nov 2024 – Jan 2025",
+    location: "Remote Contract",
+    screenshots: [
+      "/client_work/skincare/dsk1.png",
+      "/client_work/skincare/dsk2.png",
+      "/client_work/skincare/dsk3.png",
+      "/client_work/skincare/dsk4.png",
+    ],
+    overview: "Developed a scalable, secure e-commerce platform for Tohanniees Skincare featuring product categories like Glow Oils, Face Creams, and Body Care. The platform includes seamless Paystack-powered payments, automated email marketing to over 700 subscribers, and fully integrated content and catalog management.",
+    achievements: [
+      {
+        title: "Backend Development & Integrations",
+        items: [
+          "Secured RESTful APIs built with Express.js and MongoDB",
+          "local payment processing",
+          "Email automation system delivering marketing campaigns and transactional notifications",
+          "Performance-optimized API routes with caching strategies"
+        ]
+      },
+      {
+        title: "Frontend & User Experience",
+        items: [
+          "Responsive product browsing UI for skincare categories (kits, oils, creams, soaps)",
+          "Intuitive shopping flow with product filters and dynamic pricing",
+        ]
+      }
+    ],
+    quote: "This project highlights my ability to deliver production-ready web applications—from crafting secure backend systems and seamless payment processes to designing engaging user interfaces under tight timelines."
+  }
+];
+
 const ClientWork: React.FC = () => {
   return (
     <section id="client-work" className="client-work h-100 py-20 pt-32 md:pt-25">
@@ -13,252 +181,139 @@ const ClientWork: React.FC = () => {
           <h1 className="text-4xl md:text-5xl font-bold text-white uppercase">Client Work</h1>
         </div>
 
-        <div className="max-w-4xl mx-auto">
-          <div className="bg-third-color rounded-lg p-8 shadow-2xl" data-aos="zoom-in-up">
-            <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-6">
-              <div className="mb-4 md:mb-0">
-                <h4 className="text-2xl font-bold text-black mb-2">
-                  <a 
-                    href="https://thelinkhangout.com" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="hover:text-accent transition-colors inline-flex items-center gap-2"
-                  >
-                    The Link Hangouts
-                    <ExternalLink size={20} />
-                  </a>
-                </h4>
-                <p className="text-lg font-semibold text-accent mb-2">Full Stack Developer</p>
-                <div className="flex items-center gap-4 text-sm text-gray-600">
-                  <div className="flex items-center gap-1">
-                    <Calendar size={16} />
-                    <span>June 2024 - July 2024</span>
+        <div className="max-w-6xl mx-auto space-y-8">
+          {clientWorksData.map((work) => (
+            <div key={work.id} className="bg-third-color rounded-lg p-8 shadow-2xl" data-aos="zoom-in-up">
+              {/* Header Section */}
+              <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-6">
+                <div className="mb-4 md:mb-0">
+                  <h4 className="text-2xl font-bold text-black mb-2">
+                    <a 
+                      href={work.url} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="hover:text-accent transition-colors inline-flex items-center gap-2"
+                    >
+                      {work.title}
+                      <ExternalLink size={20} />
+                    </a>
+                  </h4>
+                  <p className="text-lg font-semibold text-accent mb-2">{work.role}</p>
+                  <div className="flex items-center gap-4 text-sm text-gray-600">
+                    <div className="flex items-center gap-1">
+                      <Calendar size={16} />
+                      <span>{work.duration}</span>
+                    </div>
+                    <div className="flex items-center gap-1">
+                      <MapPin size={16} />
+                      <span>{work.location}</span>
+                    </div>
                   </div>
-                  <div className="flex items-center gap-1">
-                    <MapPin size={16} />
-                    <span>Remote Contract</span>
+                </div>
+                <a 
+                  href={work.url} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="bg-accent hover:bg-accent/80 text-white px-6 py-2 rounded-lg font-medium transition-colors inline-flex items-center gap-2 self-start"
+                >
+                  Visit Project
+                  <ExternalLink size={16} />
+                </a>
+              </div>
+
+              {/* Screenshots Gallery */}
+              <div className="mb-6">
+                <h5 className="text-lg font-semibold text-black mb-3">Project Screenshots</h5>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  {work.screenshots.map((screenshot, idx) => (
+                    <div 
+                      key={idx} 
+                      className="relative rounded-lg overflow-hidden border-2 border-accent/20 shadow-lg hover:shadow-xl transition-shadow group"
+                      data-aos="zoom-in"
+                      data-aos-delay={idx * 100}
+                    >
+                      <img 
+                        src={screenshot} 
+                        alt={`${work.title} screenshot ${idx + 1}`}
+                        className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-300"
+                        loading="lazy"
+                      />
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Project Overview */}
+              <div className="mb-6">
+                <h5 className="text-lg font-semibold text-black mb-3">Project Overview</h5>
+                <p className="text-gray-700 leading-relaxed mb-4">
+                  {work.overview}
+                </p>
+              </div>
+
+              {/* Key Achievements & Technologies */}
+              <div className="mb-6">
+                <h5 className="text-lg font-semibold text-black mb-3">Key Achievements & Technologies</h5>
+                <div className="grid md:grid-cols-2 gap-6">
+                  {work.achievements.map((achievement, idx) => (
+                    <div key={idx}>
+                      <h6 className="font-semibold text-black mb-2">{achievement.title}</h6>
+                      <ul className="text-gray-700 space-y-1 text-sm">
+                        {achievement.items.map((item, itemIdx) => (
+                          <li key={itemIdx} data-aos="fade-right">{item}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Core Features (if available) */}
+              {work.features && (
+                <div className="mb-6">
+                  <h5 className="text-lg font-semibold text-black mb-3">Core Features Implemented</h5>
+                  <div className="grid md:grid-cols-2 gap-6">
+                    {work.features.map((feature, idx) => (
+                      <div key={idx}>
+                        <h6 className="font-semibold text-black mb-2">{feature.title}</h6>
+                        <ul className="text-gray-700 space-y-1 text-sm">
+                          {feature.items.map((item, itemIdx) => (
+                            <li key={itemIdx} data-aos="fade-right">{item}</li>
+                          ))}
+                        </ul>
+                      </div>
+                    ))}
                   </div>
                 </div>
-              </div>
-              <a 
-                href="https://thelinkhangout.com" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="bg-accent hover:bg-accent/80 text-white px-6 py-2 rounded-lg font-medium transition-colors inline-flex items-center gap-2 self-start"
-              >
-                Visit Project
-                <ExternalLink size={16} />
-              </a>
-            </div>
+              )}
 
-            <div className="mb-6">
-              <h5 className="text-lg font-semibold text-black mb-3">Project Overview</h5>
-              <p className="text-gray-700 leading-relaxed mb-4">
-                Developed a comprehensive event ticketing platform with integrated e-commerce functionality 
-                for The Link Hangouts. This full featured web application serves as a complete solution for 
-                event management, ticket sales, and merchandise distribution.
-              </p>
-            </div>
+              {/* User Experience Features (if available) */}
+              {work.userFeatures && (
+                <div className="mb-6">
+                  <h5 className="text-lg font-semibold text-black mb-3">User Experience Features</h5>
+                  <div className="grid md:grid-cols-2 gap-6">
+                    {work.userFeatures.map((userFeature, idx) => (
+                      <div key={idx}>
+                        <h6 className="font-semibold text-black mb-2">{userFeature.title}</h6>
+                        <ul className="text-gray-700 space-y-1 text-sm">
+                          {userFeature.items.map((item, itemIdx) => (
+                            <li key={itemIdx} data-aos="fade-right">{item}</li>
+                          ))}
+                        </ul>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
 
-            <div className="mb-6">
-              <h5 className="text-lg font-semibold text-black mb-3">Key Achievements & Technologies</h5>
-              <div className="grid md:grid-cols-2 gap-6">
-                <div>
-                  <h6 className="font-semibold text-black mb-2">Frontend Development</h6>
-                  <ul className="text-gray-700 space-y-1 text-sm">
-                    <li data-aos="fade-right">Built responsive React application with Redux for state management</li>
-                    <li data-aos="fade-right">Implemented modern UI/UX design principles</li>
-                    <li data-aos="fade-right">Created reusable component library</li>
-                    <li data-aos="fade-right">Optimized for mobile and desktop experiences</li>
-                  </ul>
-                </div>
-                <div>
-                  <h6 className="font-semibold text-black mb-2">Backend & Integration</h6>
-                  <ul className="text-gray-700 space-y-1 text-sm">
-                    <li data-aos="fade-right">Developed RESTful APIs using modern frameworks</li>
-                    <li data-aos="fade-right">Integrated Paystack payment gateway for secure transactions</li>
-                    <li data-aos="fade-right">Implemented robust database architecture</li>
-                    <li data-aos="fade-right">Created automated email campaign system</li>
-                  </ul>
-                </div>
+              {/* Quote */}
+              <div className="mt-6 p-4 bg-accent/5 rounded-lg">
+                <p className="text-sm text-gray-600 italic">
+                  "{work.quote}"
+                </p>
               </div>
             </div>
-
-            <div className="mb-6">
-              <h5 className="text-lg font-semibold text-black mb-3">Core Features Implemented</h5>
-              <div className="grid md:grid-cols-2 gap-6">
-                <div>
-                  <h6 className="font-semibold text-black mb-2">Event Management</h6>
-                  <ul className="text-gray-700 space-y-1 text-sm">
-                    <li data-aos="fade-right">Event creation and management system</li>
-                    <li data-aos="fade-right">Ticket booking and reservation system</li>
-                    <li data-aos="fade-right">Real-time availability tracking</li>
-                    <li data-aos="fade-right">QR code generation for tickets</li>
-                  </ul>
-                </div>
-                <div>
-                  <h6 className="font-semibold text-black mb-2">E-commerce Platform</h6>
-                  <ul className="text-gray-700 space-y-1 text-sm">
-                    <li data-aos="fade-right">Merchandise shop with product catalog</li>
-                    <li data-aos="fade-right">Shopping cart and checkout system</li>
-                    <li data-aos="fade-right">Inventory management</li>
-                    <li data-aos="fade-right">Order tracking and fulfillment</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-
-            <div className="mb-6">
-              <h5 className="text-lg font-semibold text-black mb-3">User Experience Features</h5>
-              <div className="grid md:grid-cols-2 gap-6">
-                <div>
-                  <h6 className="font-semibold text-black mb-2">Authentication System</h6>
-                  <ul className="text-gray-700 space-y-1 text-sm">
-                    <li data-aos="fade-right">Secure user registration and login</li>
-                    <li data-aos="fade-right">Password reset functionality</li>
-                    <li data-aos="fade-right">Email verification system</li>
-                    <li data-aos="fade-right">User profile management</li>
-                  </ul>
-                </div>
-                <div>
-                  <h6 className="font-semibold text-black mb-2">Communication System</h6>
-                  <ul className="text-gray-700 space-y-1 text-sm">
-                    <li data-aos="fade-right">Automated email campaigns</li>
-                    <li data-aos="fade-right">Welcome and confirmation emails</li>
-                    <li data-aos="fade-right">Event reminder notifications</li>
-                    <li data-aos="fade-right">Order confirmation and updates</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-
-            <div className="border-t border-gray-300 pt-6">
-              <h5 className="text-lg font-semibold text-black mb-3">Technical Stack</h5>
-              <div className="flex flex-wrap gap-2">
-                {[
-                  'React', 'Redux', 'TypeScript', 'Node.js', 'Express.js', 
-                  'MongoDB', 'Paystack API', 'Email APIs', 'JWT Authentication',
-                  'Responsive Design', 'RESTful APIs', 'Git Version Control'
-                ].map((tech, index) => (
-                  <span 
-                    key={index}
-                    className="bg-accent/10 text-accent px-3 py-1 rounded-full text-sm font-medium"
-                  >
-                    {tech}
-                  </span>
-                ))}
-              </div>
-            </div>
-
-            <div className="mt-6 p-4 bg-accent/5 rounded-lg">
-              <p className="text-sm text-gray-600 italic">
-                "This project showcases my ability to deliver end-to-end solutions, from initial concept 
-                to deployment, while maintaining high code quality and user experience standards."
-              </p>
-            </div>
-          </div>
-
-  <div className="mt-4 bg-third-color rounded-lg p-8 shadow-2xl" data-aos="zoom-in-up">
-    <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-6">
-      <div className="mb-4 md:mb-0">
-        <h4 className="text-2xl font-bold text-black mb-2">
-          <a
-            href="https://tohannieesskincare.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-accent transition-colors inline-flex items-center gap-2"
-          >
-            Tohanniees Skincare
-            <ExternalLink size={20} />
-          </a>
-        </h4>
-        <p className="text-lg font-semibold text-accent mb-2">Full-Stack Developer</p>
-        <div className="flex items-center gap-4 text-sm text-gray-600">
-          <div className="flex items-center gap-1">
-            <Calendar size={16} />
-            <span>November 2024 – January 2025</span>
-          </div>
-          <div className="flex items-center gap-1">
-            <MapPin size={16} />
-            <span>Remote Contract</span>
-          </div>
-        </div>
-      </div>
-      <a
-        href="https://tohannieesskincare.com"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="bg-accent hover:bg-accent/80 text-white px-6 py-2 rounded-lg font-medium transition-colors inline-flex items-center gap-2 self-start"
-      >
-        Visit Project
-        <ExternalLink size={16} />
-      </a>
-    </div>
-
-    <div className="mb-6">
-      <h5 className="text-lg font-semibold text-black mb-3">Project Overview</h5>
-      <p className="text-gray-700 leading-relaxed mb-4">
-        Developed a scalable, secure e-commerce platform for Tohanniees Skincare featuring product categories
-        like Glow Oils, Face Creams, and Body Care. The platform includes seamless Paystack-powered payments,
-        automated email marketing to over 700 subscribers, and fully integrated content and catalog management.
-      </p>
-    </div>
-
-    <div className="mb-6">
-      <h5 className="text-lg font-semibold text-black mb-3">Key Achievements & Technologies</h5>
-      <div className="grid md:grid-cols-2 gap-6">
-        <div>
-          <h6 className="font-semibold text-black mb-2">Backend Development & Integrations</h6>
-          <ul className="text-gray-700 space-y-1 text-sm">
-            <li data-aos="fade-right">Secured RESTful APIs built with Express.js and MongoDB</li>
-            <li data-aos="fade-right">Paystack integration for seamless, local payment processing</li>
-            <li data-aos="fade-right">Email automation system delivering marketing campaigns and transactional notifications</li>
-            <li data-aos="fade-right">Performance-optimized API routes with caching strategies</li>
-          </ul>
-        </div>
-        <div>
-          <h6 className="font-semibold text-black mb-2">Frontend & User Experience</h6>
-          <ul className="text-gray-700 space-y-1 text-sm">
-            <li data-aos="fade-right">Responsive product browsing UI for skincare categories (kits, oils, creams, soaps)</li>
-            <li data-aos="fade-right">Intuitive shopping flow with product filters and dynamic pricing</li>
-            <li data-aos="fade-right">Accessible design focused on speed and mobile-first experience</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
-    <div className="border-t border-gray-300 pt-6">
-      <h5 className="text-lg font-semibold text-black mb-3">Technical Stack</h5>
-      <div className="flex flex-wrap gap-2">
-        {[
-          "Express.js",
-          "Node.js",
-          "MongoDB",
-          "Paystack API",
-          "Email Automation",
-          "Secure APIs",
-          "Responsive Design",
-          "RESTful Services",
-          "Performance Optimization",
-        ].map((tech, idx) => (
-          <span
-            key={idx}
-            className="bg-accent/10 text-accent px-3 py-1 rounded-full text-sm font-medium"
-          >
-            {tech}
-          </span>
-        ))}
-      </div>
-    </div>
-
-    <div className="mt-6 p-4 bg-accent/5 rounded-lg">
-      <p className="text-sm text-gray-600 italic">
-        "This project highlights my ability to deliver production-ready web applications—from crafting secure
-        backend systems and seamless payment processes to designing engaging user interfaces under tight timelines."
-      </p>
-    </div>
-  </div>
-
+          ))}
         </div>
       </div>
     </section>

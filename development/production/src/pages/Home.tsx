@@ -25,7 +25,7 @@ const Home: React.FC = () => {
 
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div data-aos="fade-right">
-          <div className="h-[420px] md:h-[640px] w-full max-w-md mx-auto rounded-[50%] md:rounded-lg shadow-2xl bg-[url('https://res.cloudinary.com/dduai6ryd/image/upload/isaac.png')] bg-cover bg-top md:bg-center"></div>
+          <div className="h-[220px] md:h-[640px] w-[50%] md:w-full max-w-md mx-auto rounded-[10px] md:rounded-lg shadow-2xl bg-[url('https://res.cloudinary.com/dduai6ryd/image/upload/isaac.png')] bg-cover bg-top md:bg-center"></div>
             {/*<img
               src="https://res.cloudinary.com/dduai6ryd/image/upload/isaac.png"
               alt="Profile"
@@ -86,7 +86,7 @@ const Home: React.FC = () => {
             <h2 className="text-2xl text-white font-bold mb-4">Interests</h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-3 md:grid-cols-2 lg:grid-cols-4 gap-6">
             <div className="icon-box text-center">
               <RiGlobalLine size={36} color="#ffbb2c" className="mx-auto mb-2" />
               <h3 className="text-white">Full Stack Development</h3>
@@ -113,7 +113,7 @@ const Home: React.FC = () => {
             </div>
             <div className="icon-box text-center">
               <RiBarChartBoxLine size={36} color="#f1081f" className="mx-auto mb-2" />
-              <h3 className="text-white">GPTs</h3>
+              <h3 className="text-white">Ai agents</h3>
             </div>
             <div className="icon-box text-center">
               <RiFileList3Line size={36} color="#47aeff" className="mx-auto mb-2" />

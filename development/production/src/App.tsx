@@ -75,7 +75,8 @@ const AppContent: React.FC = () => {
       duration: 1200,
       easing: 'ease-out-cubic',
       mirror: true,
-      anchorPlacement: 'bottom-center'
+      anchorPlacement: 'bottom-center',
+      once: true
     });
 
     AOS.refresh();
@@ -87,11 +88,12 @@ const AppContent: React.FC = () => {
       <Header />
       <main className="relative">
         <Home />
-        <Education />
-        <Skills />
-        <Services />
-        <Work />
         <ClientWork />
+        <Skills />
+        {/*<Services />*/}
+        
+        <Work />
+        <Education />
         <Contact />
       </main>
       {isMobile && <ScrollIndicator currentSection={currentSection} />}
