@@ -60,9 +60,20 @@ const Header: React.FC = () => {
             )
             :
             (
-              <Link to="/" className="hover:text-accent transition-colors">
+              <div className="flex justify-center space-x-4 mt-10">
+                <Link to="/" className="hover:text-accent transition-colors">
                 Isaac Olalekan Ajibola
               </Link>
+              <a href="https://www.github.com/bigizic" target='_blank' className="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center text-white hover:bg-green-600 transition-colors">
+                <Github size={16} />
+              </a>
+              <a href="https://www.linkedin.com/in/oliiver" target='_blank' className="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center text-white hover:bg-green-600 transition-colors">
+                <Linkedin size={16} />
+              </a>
+              <a href="mailto:olalekanisaac75@gmail.com" target='_blank' className="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center text-white hover:bg-green-600 transition-colors">
+                <Mail size={16} />
+              </a>
+            </div>
             )
             }
             </h1>
