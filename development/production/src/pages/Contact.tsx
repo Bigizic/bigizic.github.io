@@ -45,9 +45,9 @@ const Contact: React.FC = () => {
           </h1>
         </div>
 
-        <div className="grid lg:grid-cols-3 gap-8 mb-12">
+        <div className="grid lg:grid-cols-3 gap-8 mb-12 justify-items-center">
           {/* Contact Info */}
-          <div className="lg:col-span-1 space-y-6">
+          <div className="lg:col-span-1 space-y-6 w-fit">
             <div className="bg-third-color p-6 rounded-lg" data-aos="fade-right">
               <div className="flex items-center mb-4">
                 <div className="w-12 h-12 bg-lynx rounded-full flex items-center justify-center mr-4">

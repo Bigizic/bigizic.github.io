@@ -15,6 +15,10 @@ const Header: React.FC = () => {
     { name: 'Client Work', path: '#client-work' },
     { name: 'Contact', path: '#contact' },
   ];
+  const typingTexts = [
+    " computer programmer",
+    " full Stack Developer"
+  ]
 
   return (
     <header 
@@ -43,7 +47,7 @@ const Header: React.FC = () => {
             {/* Mobile subtitle */}
             <h2 className="text-xs mt-0 mb-4 text-accent">
               I'm a <span className="typing text-black text-400 border-b-2 border-black pb-1 text-xs">
-                <TypingEffect texts={[" computer programmer", " full Stack Software Engineer", " backend Developer"]} />
+                <TypingEffect texts={typingTexts} />
               </span>
             </h2>
           </div>

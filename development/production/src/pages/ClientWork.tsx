@@ -202,11 +202,11 @@ const ClientWork: React.FC = () => {
                   <div className="flex items-center gap-4 text-sm text-white">
                     <div className="flex items-center gap-1 flex-wrap">
                       <Calendar size={16} />
-                      <span>{work.duration}</span>
+                      <span className='text-[10px] lg:text-[12px]'>{work.duration}</span>
                     </div>
                     <div className="flex items-center gap-1 flex-wrap">
                       <MapPin size={16} />
-                      <span>{work.location}</span>
+                      <span className='text-[10px] lg:text-[12px]'>{work.location}</span>
                     </div>
                   </div>
                 </div>
