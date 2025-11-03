@@ -55,11 +55,11 @@ const Services: React.FC = () => {
     <section className="h-100 py-20 pt-32 md:pt-25">
       <div className="container mx-auto px-4 pl-10 pr-10">
         <div className="text-center mb-16" data-aos="fade-up">
-          <h2 data-aos="fade-right" className="text-sm font-medium text-white-400 uppercase tracking-wider mb-4">
+          <h2 data-aos="fade-right" className="text-sm font-medium text-black-400 uppercase tracking-wider mb-4">
             What I Offer
             <span className="inline-block w-32 h-px bg-white bg-white-400 ml-4 align-middle"></span>
           </h2>
-          <h1 className="text-4xl md:text-5xl font-bold text-white uppercase">Services</h1>
+          <h1 className="text-4xl md:text-5xl font-bold text-black uppercase">Services</h1>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">

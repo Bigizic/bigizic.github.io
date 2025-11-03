@@ -84,7 +84,7 @@ const AppContent: React.FC = () => {
   }, []);
 
   return (
-    <div className="bg-primary-dark text-white">
+    <div className="bg-linear text-black">
       <Header />
       <main className="relative">
         <Home />

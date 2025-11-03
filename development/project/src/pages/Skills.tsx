@@ -6,15 +6,15 @@ const Skills: React.FC = () => {
         {/* Skills Section */}
         <div className="pl-10 pr-10">
           <div className="text-center mb-16" data-aos="fade-up">
-            <h2 data-aos="fade-right" className="text-sm font-medium text-white-400 uppercase tracking-wider mb-4">
+            <h2 data-aos="fade-right" className="text-sm font-medium text-black-400 uppercase tracking-wider mb-4">
                 My areas of expertise
                 <span className="inline-block w-32 h-px bg-white bg-white-400 ml-4 align-middle"></span>
             </h2>
-            <h1 className="text-4xl md:text-5xl font-bold text-white uppercase">Skills</h1>
+            <h1 className="text-4xl md:text-5xl font-bold text-black uppercase">Skills</h1>
           </div>
 
           {/* Languages and Databases */}
-          <h3 className="text-white font-semibold mb-4" data-aos="fade-right">Languages and Databases</h3>
+          <h3 className="text-black font-semibold mb-4" data-aos="fade-right">Languages and Databases</h3>
           <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-8">
             {[
               { img: "python-horizontal.svg", size: "w-25 h-10" },
@@ -40,7 +40,7 @@ const Skills: React.FC = () => {
           </div>
 
           {/* Frameworks */}
-          <h4 className="text-white font-semibold mt-12 mb-4" data-aos="fade-right">Frameworks</h4>
+          <h4 className="text-black font-semibold mt-12 mb-4" data-aos="fade-right">Frameworks</h4>
           <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-8">
             {[
               { img: "palletsprojects_flask-ar21~v2.svg", size: "w-25 h-10" },
@@ -63,7 +63,7 @@ const Skills: React.FC = () => {
           </div>
           
           {/* Tools */}
-          <h4 className="text-white font-semibold mt-12 mb-4" data-aos="fade-right">Tools</h4>
+          <h4 className="text-black font-semibold mt-12 mb-4" data-aos="fade-right">Tools</h4>
           <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-8">
             {[
               { img: "git-scm-ar21.svg", size: "w-25 h-10" },

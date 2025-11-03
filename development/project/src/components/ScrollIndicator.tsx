@@ -131,8 +131,8 @@ const ScrollIndicator: React.FC<ScrollIndicatorProps> = ({ currentSection }) => 
           className={`flex flex-col items-center p-2 rounded-xl transition-all duration-300 mb-1 
             ${
               currentSection === item.name
-                ? "bg-accent text-white scale-110"
-                : "text-white hover:bg-accent/20 hover:scale-105"
+                ? "bg-accent text-black scale-110"
+                : "text-black hover:bg-accent/20 hover:scale-105"
             }
           `}
         >

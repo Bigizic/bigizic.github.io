@@ -31,16 +31,16 @@ const Contact: React.FC = () => {
 
   return (
     <section id="contact" className="contact h-100 py-20 pt-32 md:pt-25">
-      <div className="container mx-auto px-4 md:pl-10  md:pr-10">
+      <div className=" mx-auto px-default">
         <div className="text-center mb-16" data-aos="fade-up">
           <h2
             data-aos="fade-right"
-            className="text-sm font-medium text-white-400 uppercase tracking-wider mb-4"
+            className="text-sm font-medium text-black-400 uppercase tracking-wider mb-4"
           >
             Get In Touch
-            <span className="inline-block w-32 h-px bg-white bg-white-400 ml-4 align-middle"></span>
+            <span className="inline-block w-32 h-px bg-black bg-white-400 ml-4 align-middle"></span>
           </h2>
-          <h1 className="text-4xl md:text-5xl font-bold text-white uppercase">
+          <h1 className="text-4xl md:text-5xl font-bold text-black uppercase">
             Contact
           </h1>
         </div>
@@ -85,11 +85,11 @@ const Contact: React.FC = () => {
             </div>
 
             <div
-              className="bg-third-color p-6 rounded-lg"
+              className="bg-third-color p-6 rounded-lg w-fit"
               data-aos="fade-right"
               data-aos-delay="100"
             >
-              <div className="flex items-center mb-4">
+              <div className="flex items-center mb-4 w-fit">
                 <div className="w-12 h-12 bg-lynx rounded-full flex items-center justify-center mr-4">
                   <Mail className="text-accent" size={20} />
                 </div>
@@ -100,28 +100,13 @@ const Contact: React.FC = () => {
               <p className="text-black ml-16">olalekanisaac75@gmail.com</p>
             </div>
 
-            <div
-              className="bg-third-color p-6 rounded-lg"
-              data-aos="fade-right"
-              data-aos-delay="200"
-            >
-              <div className="flex items-center mb-4">
-                <div className="w-12 h-12 bg-lynx rounded-full flex items-center justify-center mr-4">
-                  <Phone className="text-accent" size={20} />
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold text-black">Call</h3>
-                </div>
-              </div>
-              <p className="text-black ml-16">Not available for calls</p>
-            </div>
           </div>
 
           {/* Contact Form */}
           <div className="lg:col-span-2">
             <form
               onSubmit={handleSubmit}
-              className="bg-white/5 p-8 rounded-lg backdrop-blur-sm"
+              className="p-8 rounded-lg backdrop-blur-sm"
               data-aos="fade-left"
             >
               <div className="grid md:grid-cols-2 gap-6 mb-6">
@@ -131,7 +116,7 @@ const Contact: React.FC = () => {
                   placeholder="Your Name"
                   value={formData.name}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 bg-white/5 border-0 rounded text-white placeholder-white/30 focus:bg-white/10 focus:outline-none transition-colors"
+                  className="w-full px-4 py-3 bg-white/100 border-0 rounded text-black placeholder-black/100 focus:bg-white/10 focus:outline-none transition-colors"
                   required
                 />
                 <input
@@ -140,7 +125,7 @@ const Contact: React.FC = () => {
                   placeholder="Your Email"
                   value={formData.email}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 bg-white/5 border-0 rounded text-white placeholder-white/30 focus:bg-white/10 focus:outline-none transition-colors"
+                  className="w-full px-4 py-3 bg-white/100 border-0 rounded text-black placeholder-black/100 focus:bg-white/10 focus:outline-none transition-colors"
                   required
                 />
               </div>
@@ -150,7 +135,7 @@ const Contact: React.FC = () => {
                 placeholder="Subject"
                 value={formData.subject}
                 onChange={handleChange}
-                className="w-full px-4 py-3 bg-white/5 border-0 rounded text-white placeholder-white/30 focus:bg-white/10 focus:outline-none transition-colors mb-6"
+                className="w-full px-4 py-3 bg-white/100 border-0 rounded text-black placeholder-black/100 focus:bg-white/10 focus:outline-none transition-colors mb-6"
                 required
               />
               <textarea
@@ -159,7 +144,7 @@ const Contact: React.FC = () => {
                 rows={6}
                 value={formData.message}
                 onChange={handleChange}
-                className="w-full px-4 py-3 bg-white/5 border-0 rounded text-white placeholder-white/30 focus:bg-white/10 focus:outline-none transition-colors mb-6 resize-none"
+                className="w-full px-4 py-3 bg-white/100 border-0 rounded text-black placeholder-black/100 focus:bg-white/10 focus:outline-none transition-colors mb-6 resize-none"
                 required
               ></textarea>
               <button

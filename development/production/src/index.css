@@ -1,15 +1,20 @@
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue:wght@400&family=Poppins:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Geist+Mono:wght@100..900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
   /*--primary-color: #142D25;*/
-  --primary-color: #000000;
-  --secondary-color: #000000;
-  --third-color: #F7DFBA;
+  /*--primary-color: #f7f8f3;*/
+  --primary-color: #fff;
+  --secondary-color: #fff;
+  /*--third-color: #F7DFBA;*/
+  --third-color: rgba(0, 0, 0, 0.15);
   --lynx: #F7F7F7;
-  --accent: #12d640;
+  /*--accent: #12d640;*/
+  --accent: #000000;
+  --linear: rgba(0, 0, 0, 0.15);
 }
 
 * {
@@ -24,7 +29,7 @@ html {
 }
 
 body {
-  font-family: 'Poppins', sans-serif;
+  font-family: "GeistMono",monospace;
   background-color: var(--primary-color);
   color: var(--lynx);
   line-height: 1.6;
@@ -100,7 +105,7 @@ body {
 section {
   position: relative;
   width: 100%;
-  min-height: 100vh;
+  /*min-height: 100vh;*/
   display: flex;
   align-items: center;
   padding: 80px 0;

@@ -35,12 +35,12 @@ const Contact: React.FC = () => {
         <div className="text-center mb-16" data-aos="fade-up">
           <h2
             data-aos="fade-right"
-            className="text-sm font-medium text-white-400 uppercase tracking-wider mb-4"
+            className="text-sm font-medium text-black-400 uppercase tracking-wider mb-4"
           >
             Get In Touch
             <span className="inline-block w-32 h-px bg-white bg-white-400 ml-4 align-middle"></span>
           </h2>
-          <h1 className="text-4xl md:text-5xl font-bold text-white uppercase">
+          <h1 className="text-4xl md:text-5xl font-bold text-black uppercase">
             Contact
           </h1>
         </div>
@@ -131,7 +131,7 @@ const Contact: React.FC = () => {
                   placeholder="Your Name"
                   value={formData.name}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 bg-white/5 border-0 rounded text-white placeholder-white/30 focus:bg-white/10 focus:outline-none transition-colors"
+                  className="w-full px-4 py-3 bg-white/5 border-0 rounded text-black placeholder-white/30 focus:bg-white/10 focus:outline-none transition-colors"
                   required
                 />
                 <input
@@ -140,7 +140,7 @@ const Contact: React.FC = () => {
                   placeholder="Your Email"
                   value={formData.email}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 bg-white/5 border-0 rounded text-white placeholder-white/30 focus:bg-white/10 focus:outline-none transition-colors"
+                  className="w-full px-4 py-3 bg-white/5 border-0 rounded text-black placeholder-white/30 focus:bg-white/10 focus:outline-none transition-colors"
                   required
                 />
               </div>
@@ -150,7 +150,7 @@ const Contact: React.FC = () => {
                 placeholder="Subject"
                 value={formData.subject}
                 onChange={handleChange}
-                className="w-full px-4 py-3 bg-white/5 border-0 rounded text-white placeholder-white/30 focus:bg-white/10 focus:outline-none transition-colors mb-6"
+                className="w-full px-4 py-3 bg-white/5 border-0 rounded text-black placeholder-white/30 focus:bg-white/10 focus:outline-none transition-colors mb-6"
                 required
               />
               <textarea
@@ -159,12 +159,12 @@ const Contact: React.FC = () => {
                 rows={6}
                 value={formData.message}
                 onChange={handleChange}
-                className="w-full px-4 py-3 bg-white/5 border-0 rounded text-white placeholder-white/30 focus:bg-white/10 focus:outline-none transition-colors mb-6 resize-none"
+                className="w-full px-4 py-3 bg-white/5 border-0 rounded text-black placeholder-white/30 focus:bg-white/10 focus:outline-none transition-colors mb-6 resize-none"
                 required
               ></textarea>
               <button
                 type="submit"
-                className="bg-accent hover:bg-accent/80 text-white px-8 py-3 rounded font-medium transition-colors"
+                className="bg-accent hover:bg-accent/80 text-black px-8 py-3 rounded font-medium transition-colors"
               >
                 Send Message
               </button>

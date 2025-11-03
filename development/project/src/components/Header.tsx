@@ -49,7 +49,7 @@ const Header: React.FC = () => {
       <div className="container mx-auto px-4 h-full flex items-center">
         <div className={`transition-all duration-500 ${'flex items-center justify-between w-full'} ${isMobile ? '' : 'pl-10 pr-10'}`}>
           <div>
-            <h1 className={`font-bebas font-bold text-white transition-all duration-500 ${
+            <h1 className={`font-bebas font-bold text-black transition-all duration-500 ${
               'text-2xl md:text-3xl pt-4'
             }`}>
 
@@ -108,13 +108,13 @@ const Header: React.FC = () => {
           {/* Social Links */}
           {isMobile && (
             <div className="flex justify-center space-x-4 mt-10">
-              <a href="https://www.github.com/bigizic" target='_blank' className="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center text-white hover:bg-green-600 transition-colors">
+              <a href="https://www.github.com/bigizic" target='_blank' className="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center text-black hover:bg-green-600 transition-colors">
                 <Github size={16} />
               </a>
-              <a href="https://www.linkedin.com/in/oliiver" target='_blank' className="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center text-white hover:bg-green-600 transition-colors">
+              <a href="https://www.linkedin.com/in/oliiver" target='_blank' className="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center text-black hover:bg-green-600 transition-colors">
                 <Linkedin size={16} />
               </a>
-              <a href="mailto:olalekanisaac75@gmail.com" target='_blank' className="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center text-white hover:bg-green-600 transition-colors">
+              <a href="mailto:olalekanisaac75@gmail.com" target='_blank' className="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center text-black hover:bg-green-600 transition-colors">
                 <Mail size={16} />
               </a>
             </div>
@@ -130,7 +130,7 @@ const Header: React.FC = () => {
               <Link
                 key={item.name}
                 to={item.path}
-                className="block py-3 text-white hover:text-green-600 transition-colors"
+                className="block py-3 text-black hover:text-green-600 transition-colors"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 {item.name}

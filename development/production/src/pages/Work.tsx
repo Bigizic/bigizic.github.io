@@ -14,7 +14,7 @@ const Work: React.FC = () => {
         "Developed Restful APIs using C# and the .NET framework.",
       ],
     },
-    {
+    /*{
       company: "Noks Technologies",
       role: "Software Engineer",
       period: "One-Day Contract • 21 June 2024, 09:00 AM - 4:30 PM",
@@ -24,7 +24,7 @@ const Work: React.FC = () => {
         "Undertook a .NET project, marking my initial experience with the framework.",
         "Developed and maintained a .NET MVP structure to facilitate synchronization of web files for hosting.",
       ],
-    },
+    },*/
     {
       company: "Alx Africa",
       role: "Backend Developer - Intern",
@@ -41,14 +41,14 @@ const Work: React.FC = () => {
 
   return (
     <section id="work" className="work py-20 pt-32 md:pt-25">
-      <div className="container mx-auto px-4">
+      <div className=" mx-auto px-default">
         {/* Section Header */}
         <div className="text-center mb-16" data-aos="fade-up">
-          <h2 data-aos="fade-right" className="text-sm font-medium text-white-400 uppercase tracking-wider mb-4">
+          <h2 data-aos="fade-right" className="text-sm font-medium text-black-400 uppercase tracking-wider mb-4">
             My Professional Timeline
-            <span className="inline-block w-32 h-px bg-white ml-4 align-middle"></span>
+            <span className="inline-block w-32 h-px bg-black ml-4 align-middle"></span>
           </h2>
-          <h1 className="text-4xl md:text-5xl font-bold text-white uppercase">Work Experience</h1>
+          <h1 className="text-4xl md:text-5xl font-bold text-black uppercase">Work Experience</h1>
         </div>
 
         {/* Experience Cards */}
@@ -61,7 +61,7 @@ const Work: React.FC = () => {
             >
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-12 h-12 bg-accent rounded-lg flex items-center justify-center group-hover:bg-accent/80 transition-all duration-300">
-                  <Briefcase className="text-black" size={24} />
+                  <Briefcase className="text-white" size={24} />
                 </div>
                 <div>
                   <h4 className="text-xl font-bold text-black">

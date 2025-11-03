@@ -172,13 +172,13 @@ const clientWorksData = [
 const ClientWork: React.FC = () => {
   return (
     <section id="client-work" className="client-work h-100 py-20 pt-32 md:pt-25">
-      <div className="container mx-auto px-4">
+      <div className="mx-auto px-default">
         <div className="text-center mb-16" data-aos="fade-up">
-          <h2 data-aos="fade-right" className="text-sm font-medium text-white-400 uppercase tracking-wider mb-4">
+          <h2 data-aos="fade-right" className="text-sm font-medium text-black-400 uppercase tracking-wider mb-4">
             My Professional Work
-            <span className="inline-block w-32 h-px bg-white bg-white-400 ml-4 align-middle"></span>
+            <span className="inline-block w-32 h-px bg-black bg-white-400 ml-4 align-middle"></span>
           </h2>
-          <h1 className="text-4xl md:text-5xl font-bold text-white uppercase">Client Work</h1>
+          <h1 className="text-4xl md:text-5xl font-bold text-black uppercase">Client Work</h1>
         </div>
 
         <div className="max-w-6xl mx-auto space-y-8">
@@ -199,7 +199,7 @@ const ClientWork: React.FC = () => {
                     </a>
                   </h4>
                   <p className="text-lg font-semibold text-accent mb-2">{work.role}</p>
-                  <div className="flex items-center gap-4 text-sm text-gray-600">
+                  <div className="flex items-center gap-4 text-sm text-white">
                     <div className="flex items-center gap-1 flex-wrap">
                       <Calendar size={16} />
                       <span>{work.duration}</span>
@@ -243,75 +243,6 @@ const ClientWork: React.FC = () => {
                 </div>
               </div>
 
-              {/* Project Overview */}
-              <div className="mb-6">
-                <h5 className="text-lg font-semibold text-black mb-3">Project Overview</h5>
-                <p className="text-gray-700 leading-relaxed mb-4">
-                  {work.overview}
-                </p>
-              </div>
-
-              {/* Key Achievements & Technologies */}
-              <div className="mb-6">
-                <h5 className="text-lg font-semibold text-black mb-3">Key Achievements & Technologies</h5>
-                <div className="grid md:grid-cols-2 gap-6">
-                  {work.achievements.map((achievement, idx) => (
-                    <div key={idx}>
-                      <h6 className="font-semibold text-black mb-2">{achievement.title}</h6>
-                      <ul className="text-gray-700 space-y-1 text-sm">
-                        {achievement.items.map((item, itemIdx) => (
-                          <li key={itemIdx} data-aos="fade-right">{item}</li>
-                        ))}
-                      </ul>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* Core Features (if available) */}
-              {work.features && (
-                <div className="mb-6">
-                  <h5 className="text-lg font-semibold text-black mb-3">Core Features Implemented</h5>
-                  <div className="grid md:grid-cols-2 gap-6">
-                    {work.features.map((feature, idx) => (
-                      <div key={idx}>
-                        <h6 className="font-semibold text-black mb-2">{feature.title}</h6>
-                        <ul className="text-gray-700 space-y-1 text-sm">
-                          {feature.items.map((item, itemIdx) => (
-                            <li key={itemIdx} data-aos="fade-right">{item}</li>
-                          ))}
-                        </ul>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              )}
-
-              {/* User Experience Features (if available) */}
-              {work.userFeatures && (
-                <div className="mb-6">
-                  <h5 className="text-lg font-semibold text-black mb-3">User Experience Features</h5>
-                  <div className="grid md:grid-cols-2 gap-6">
-                    {work.userFeatures.map((userFeature, idx) => (
-                      <div key={idx}>
-                        <h6 className="font-semibold text-black mb-2">{userFeature.title}</h6>
-                        <ul className="text-gray-700 space-y-1 text-sm">
-                          {userFeature.items.map((item, itemIdx) => (
-                            <li key={itemIdx} data-aos="fade-right">{item}</li>
-                          ))}
-                        </ul>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              )}
-
-              {/* Quote */}
-              <div className="mt-6 p-4 bg-accent/5 rounded-lg">
-                <p className="text-sm text-gray-600 italic">
-                  "{work.quote}"
-                </p>
-              </div>
             </div>
           ))}
         </div>
@@ -321,3 +252,71 @@ const ClientWork: React.FC = () => {
 };
 
 export default ClientWork;
+
+/**
+ *               
+ <div className="mb-6">
+ <h5 className="text-lg font-semibold text-black mb-3">Project Overview</h5>
+ <p className="text-gray-700 leading-relaxed mb-4">
+   {work.overview}
+ </p>
+</div>
+
+<div className="mb-6">
+ <h5 className="text-lg font-semibold text-black mb-3">Key Achievements & Technologies</h5>
+ <div className="grid md:grid-cols-2 gap-6">
+   {work.achievements.map((achievement, idx) => (
+     <div key={idx}>
+       <h6 className="font-semibold text-black mb-2">{achievement.title}</h6>
+       <ul className="text-gray-700 space-y-1 text-sm">
+         {achievement.items.map((item, itemIdx) => (
+           <li key={itemIdx} data-aos="fade-right">{item}</li>
+         ))}
+       </ul>
+     </div>
+   ))}
+ </div>
+</div>
+
+{work.features && (
+ <div className="mb-6">
+   <h5 className="text-lg font-semibold text-black mb-3">Core Features Implemented</h5>
+   <div className="grid md:grid-cols-2 gap-6">
+     {work.features.map((feature, idx) => (
+       <div key={idx}>
+         <h6 className="font-semibold text-black mb-2">{feature.title}</h6>
+         <ul className="text-gray-700 space-y-1 text-sm">
+           {feature.items.map((item, itemIdx) => (
+             <li key={itemIdx} data-aos="fade-right">{item}</li>
+           ))}
+         </ul>
+       </div>
+     ))}
+   </div>
+ </div>
+)}
+
+{work.userFeatures && (
+ <div className="mb-6">
+   <h5 className="text-lg font-semibold text-black mb-3">User Experience Features</h5>
+   <div className="grid md:grid-cols-2 gap-6">
+     {work.userFeatures.map((userFeature, idx) => (
+       <div key={idx}>
+         <h6 className="font-semibold text-black mb-2">{userFeature.title}</h6>
+         <ul className="text-gray-700 space-y-1 text-sm">
+           {userFeature.items.map((item, itemIdx) => (
+             <li key={itemIdx} data-aos="fade-right">{item}</li>
+           ))}
+         </ul>
+       </div>
+     ))}
+   </div>
+ </div>
+)}
+
+<div className="mt-6 p-4 bg-accent/5 rounded-lg">
+ <p className="text-sm text-gray-600 italic">
+   "{work.quote}"
+ </p>
+</div>
+ */

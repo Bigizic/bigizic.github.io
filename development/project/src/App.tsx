@@ -73,7 +73,7 @@ const AppContent: React.FC = () => {
   }, []);
 
   return (
-    <div className="bg-primary-dark text-white">
+    <div className="bg-primary-dark text-black">
       <Header />
       <main className="relative">
         <Routes>

@@ -44,11 +44,11 @@ const Work: React.FC = () => {
       <div className="container mx-auto px-4">
         {/* Section Header */}
         <div className="text-center mb-16" data-aos="fade-up">
-          <h2 data-aos="fade-right" className="text-sm font-medium text-white-400 uppercase tracking-wider mb-4">
+          <h2 data-aos="fade-right" className="text-sm font-medium text-black-400 uppercase tracking-wider mb-4">
             My Professional Timeline
             <span className="inline-block w-32 h-px bg-white ml-4 align-middle"></span>
           </h2>
-          <h1 className="text-4xl md:text-5xl font-bold text-white uppercase">Work Experience</h1>
+          <h1 className="text-4xl md:text-5xl font-bold text-black uppercase">Work Experience</h1>
         </div>
 
         {/* Experience Cards */}

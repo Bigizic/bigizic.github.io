@@ -6,11 +6,11 @@ const ClientWork: React.FC = () => {
     <section className="client-work h-100 py-20 pt-32 md:pt-25">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16" data-aos="fade-up">
-          <h2 data-aos="fade-right" className="text-sm font-medium text-white-400 uppercase tracking-wider mb-4">
+          <h2 data-aos="fade-right" className="text-sm font-medium text-black-400 uppercase tracking-wider mb-4">
             My Professional Work
             <span className="inline-block w-32 h-px bg-white bg-white-400 ml-4 align-middle"></span>
           </h2>
-          <h1 className="text-4xl md:text-5xl font-bold text-white uppercase">Client Work</h1>
+          <h1 className="text-4xl md:text-5xl font-bold text-black uppercase">Client Work</h1>
         </div>
 
         <div className="max-w-4xl mx-auto">
@@ -44,7 +44,7 @@ const ClientWork: React.FC = () => {
                 href="https://thelinkhangout.com" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="bg-accent hover:bg-accent/80 text-white px-6 py-2 rounded-lg font-medium transition-colors inline-flex items-center gap-2 self-start"
+                className="bg-accent hover:bg-accent/80 text-black px-6 py-2 rounded-lg font-medium transition-colors inline-flex items-center gap-2 self-start"
               >
                 Visit Project
                 <ExternalLink size={16} />
@@ -188,7 +188,7 @@ const ClientWork: React.FC = () => {
         href="https://tohannieesskincare.com"
         target="_blank"
         rel="noopener noreferrer"
-        className="bg-accent hover:bg-accent/80 text-white px-6 py-2 rounded-lg font-medium transition-colors inline-flex items-center gap-2 self-start"
+        className="bg-accent hover:bg-accent/80 text-black px-6 py-2 rounded-lg font-medium transition-colors inline-flex items-center gap-2 self-start"
       >
         Visit Project
         <ExternalLink size={16} />
