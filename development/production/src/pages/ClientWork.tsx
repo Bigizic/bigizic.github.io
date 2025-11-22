@@ -15,7 +15,7 @@ const clientWorksData = [
       "/client_work/bb_glow/2.png",
       "/client_work/bb_glow/3.png",
       "/client_work/bb_glow/4.png",
-      "/client_work/bb_glow/7.jpeg",
+      "/client_work/bb_glow/7.PNG",
     ],
     overview: "Developed a Mern + Next.js e-commerce web application for BB Glow'd Natural, a natural beauty brand that sells BB Glow products. The website is built with React and Tailwind CSS.",
     achievements: [
