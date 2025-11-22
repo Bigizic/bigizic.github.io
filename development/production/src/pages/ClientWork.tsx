@@ -5,6 +5,54 @@ import { ExternalLink, Calendar, MapPin } from 'lucide-react';
 const clientWorksData = [
   {
     id: 1,
+    title: "BB Glow'd Natural",
+    url: "https://bbglownatural.com",
+    role: "Full-Stack Developer",
+    duration: "3rd Nov 2025 – 15th Nov 2025",
+    location: "Remote Contract",
+    screenshots: [
+      "/client_work/bbglowd/1.png",
+      "/client_work/bbglowd/2.png",
+      "/client_work/bbglowd/3.png",
+      "/client_work/bbglowd/4.png",
+      "/client_work/bbglowd/7.jpeg",
+    ],
+    overview: "Developed a Mern + Next.js e-commerce web application for BB Glow'd Natural, a natural beauty brand that sells BB Glow products. The website is built with React and Tailwind CSS.",
+    achievements: [
+      {
+        title: "Frontend Development",
+        items: [
+          "Built responsive Next.js + TypeScript + React application with Tailwind CSS",
+          "Optimized for mobile and desktop experiences",
+          "Redux for state management",
+        ]
+      },
+      {
+        title: "Backend Development",
+        items: [
+          "Built a RESTful API using Node.js + Express.js + MongoDB",
+          "Built a custom CMS for the admin to manage the products and orders",
+          "Integrated with Paystack for payment processing",
+          "Mailgun for email sending and verification",
+        ]
+      },
+    ],
+    features: [
+      {
+        title: "User Features",
+        items: [
+          "User can view the products and add them to the cart",
+          "User can view the cart and checkout",
+          "User can view the order history",
+          "User can view the order details",
+          "User can view the order tracking",
+          "User can view the order tracking",
+        ]
+      },
+    ],
+  },
+  {
+    id: 2,
     title: "Tohanniees Beauty Booking",
     url: "https://beauty.tohannieesskincare.com",
     role: "Full-Stack Developer",
@@ -62,7 +110,7 @@ const clientWorksData = [
     quote: "This rapid 2-week development showcases my ability to deliver focused, efficient booking solutions that enhance customer experience and streamline business operations."
   },
   {
-    id: 2,
+    id: 3,
     title: "The Link Hangouts",
     url: "https://thelinkhangout.com",
     role: "Full Stack Developer",
@@ -134,7 +182,7 @@ const clientWorksData = [
     quote: "This project showcases my ability to deliver end-to-end solutions, from initial concept to deployment, while maintaining high code quality and user experience standards."
   },
   {
-    id: 3,
+    id: 4,
     title: "Tohanniees Skincare",
     url: "https://tohannieesskincare.com",
     role: "Full-Stack Developer",
