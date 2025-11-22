@@ -11,11 +11,11 @@ const clientWorksData = [
     duration: "3rd Nov 2025 – 15th Nov 2025",
     location: "Remote Contract",
     screenshots: [
-      "/client_work/bbglowd/1.png",
-      "/client_work/bbglowd/2.png",
-      "/client_work/bbglowd/3.png",
-      "/client_work/bbglowd/4.png",
-      "/client_work/bbglowd/7.jpeg",
+      "/client_work/bb_glow/1.png",
+      "/client_work/bb_glow/2.png",
+      "/client_work/bb_glow/3.png",
+      "/client_work/bb_glow/4.png",
+      "/client_work/bb_glow/7.jpeg",
     ],
     overview: "Developed a Mern + Next.js e-commerce web application for BB Glow'd Natural, a natural beauty brand that sells BB Glow products. The website is built with React and Tailwind CSS.",
     achievements: [
