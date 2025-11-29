@@ -11,11 +11,12 @@ const clientWorksData = [
     duration: "3rd Nov 2025 – 15th Nov 2025",
     location: "Remote Contract",
     screenshots: [
-      "/client_work/bb_glow/1.png",
-      "/client_work/bb_glow/2.png",
+      "/client_work/bb_glow/8.png",
+      "/client_work/bb_glow/9.png",
       "/client_work/bb_glow/3.png",
       "/client_work/bb_glow/4.png",
       "/client_work/bb_glow/7.PNG",
+      "/client_work/bb_glow/1.png",
     ],
     overview: "Developed a Mern + Next.js e-commerce web application for BB Glow'd Natural, a natural beauty brand that sells BB Glow products. The website is built with React and Tailwind CSS.",
     achievements: [
@@ -236,9 +237,9 @@ const ClientWork: React.FC = () => {
               <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-6">
                 <div className="mb-4 md:mb-0">
                   <h4 className="text-2xl font-bold text-black mb-2">
-                    <a 
-                      href={work.url} 
-                      target="_blank" 
+                    <a
+                      href={work.url}
+                      target="_blank"
                       rel="noopener noreferrer"
                       className="hover:text-accent transition-colors inline-flex items-center gap-2"
                     >
@@ -258,9 +259,9 @@ const ClientWork: React.FC = () => {
                     </div>
                   </div>
                 </div>
-                <a 
-                  href={work.url} 
-                  target="_blank" 
+                <a
+                  href={work.url}
+                  target="_blank"
                   rel="noopener noreferrer"
                   className="bg-accent hover:bg-accent/80 text-white px-6 py-2 rounded-lg font-medium transition-colors inline-flex items-center gap-2 self-start"
                 >
@@ -274,14 +275,14 @@ const ClientWork: React.FC = () => {
                 <h5 className="text-lg font-semibold text-black mb-3">Project Screenshots</h5>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   {work.screenshots.map((screenshot, idx) => (
-                    <div 
-                      key={idx} 
+                    <div
+                      key={idx}
                       className="relative rounded-lg overflow-hidden border-2 border-accent/20 shadow-lg hover:shadow-xl transition-shadow group"
                       data-aos="zoom-in"
                       data-aos-delay={idx * 100}
                     >
-                      <img 
-                        src={screenshot} 
+                      <img
+                        src={screenshot}
                         alt={`${work.title} screenshot ${idx + 1}`}
                         className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-300"
                         loading="lazy"
