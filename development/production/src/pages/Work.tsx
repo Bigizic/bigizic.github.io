@@ -1,8 +1,44 @@
 import React from 'react';
 import { Briefcase } from 'lucide-react';
 
+const WorkCard = ({ exp }: Record<string, any>) => {
+  return (
+    <div>
+      <div className="flex items-center gap-3 mb-4">
+        <div className="w-12 h-12 bg-accent rounded-lg flex items-center justify-center group-hover:bg-accent/80 transition-all duration-300">
+          <Briefcase className="text-white" size={24} />
+        </div>
+        <div>
+          <h4 className={`text-xl font-bold text-black ${exp.link ? "hover:text-white transition-colors" : ""}`}>
+            {exp.company}
+          </h4>
+          <p className="text-sm text-gray-700">{exp.period}</p>
+        </div>
+      </div>
+
+      <p className="italic text-gray-800 mb-4">{exp.role}</p>
+
+      <ul className="list-disc pl-5 space-y-2 text-black">
+        {exp.details?.map((detail: string, idx: number) => (
+          <li key={idx}>{detail}</li>
+        ))}
+      </ul>
+    </div>
+  )
+}
+
 const Work: React.FC = () => {
   const experiences = [
+    {
+      company: "Reedapt",
+      role: "Backend Engineer",
+      period: "December 2025 - April 2026",
+      link: "https://reedapt.com",
+      details: [
+        "Dubbing Software Lead",
+        "Editor Software Lead"
+      ]
+    },
     {
       company: "Noks Technologies",
       role: "Junior Software Engineer",
@@ -59,31 +95,15 @@ const Work: React.FC = () => {
               className="bg-third-color p-8 rounded-lg hover:bg-lynx transition-all duration-300 group"
               data-aos="zoom-in-up"
             >
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-12 h-12 bg-accent rounded-lg flex items-center justify-center group-hover:bg-accent/80 transition-all duration-300">
-                  <Briefcase className="text-white" size={24} />
-                </div>
-                <div>
-                  <h4 className="text-xl font-bold text-black">
-                    {exp.link ? (
-                      <a href={exp.link} target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors">
-                        {exp.company}
-                      </a>
-                    ) : (
-                      exp.company
-                    )}
-                  </h4>
-                  <p className="text-sm text-gray-700">{exp.period}</p>
-                </div>
-              </div>
-
-              <p className="italic text-gray-800 mb-4">{exp.role}</p>
-
-              <ul className="list-disc pl-5 space-y-2 text-black">
-                {exp.details.map((detail, idx) => (
-                  <li key={idx}>{detail}</li>
-                ))}
-              </ul>
+              {exp.link ? (
+                <a href={exp.link} target="_blank" rel="noopener noreferrer" className='flex h-[100%]'>
+                  <WorkCard exp={exp} />
+                </a>
+              ) :
+                (
+                  <WorkCard exp={exp} />
+                )
+              }
             </div>
           ))}
         </div>

@@ -88,11 +88,11 @@ const AppContent: React.FC = () => {
       <Header />
       <main className="relative">
         <Home />
+        <Work />
         <ClientWork />
         <Skills />
         {/*<Services />*/}
         
-        <Work />
         <Education />
         <Contact />
       </main>
