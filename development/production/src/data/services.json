@@ -1,0 +1,47 @@
+[
+  {
+    "icon": "Globe",
+    "title": "Custom Website Solutions",
+    "description": "Responsive, high-performance websites tailored to your business needs with modern UI/UX practices."
+  },
+  {
+    "icon": "Code",
+    "title": "Full-Stack Web Development",
+    "description": "End-to-end web application development using modern stacks like React, Node.js, Python, and C#."
+  },
+  {
+    "icon": "Smartphone",
+    "title": "Mobile Development",
+    "description": "Native and cross platform mobile applications for iOS and Android."
+  },
+  {
+    "icon": "Database",
+    "title": "Database Design & Management",
+    "description": "Designing, optimizing, and managing relational and NoSQL databases such as MySQL, MongoDB, PostgreSQL, and Redis."
+  },
+  {
+    "icon": "Server",
+    "title": "API Development & Integration",
+    "description": "Building secure and scalable RESTful APIs with integrations like Paystack, email services, and third-party platforms."
+  },
+  {
+    "icon": "Shield",
+    "title": "System Security & Optimization",
+    "description": "Implementing caching, queuing, and security best practices to enhance system performance and reliability."
+  },
+  {
+    "icon": "Mail",
+    "title": "Automated Email & Campaign Systems",
+    "description": "Creating automated systems for marketing, transactional, and campaign emails to engage and retain customers."
+  },
+  {
+    "icon": "Cpu",
+    "title": "DevOps & Deployment",
+    "description": "Configuring and deploying applications on servers using Nginx, Apache, AWS, Docker, and CI/CD pipelines."
+  },
+  {
+    "icon": "Settings",
+    "title": "Performance Tuning & Scalability",
+    "description": "Optimizing applications to handle high traffic and scale seamlessly while maintaining speed and reliability."
+  }
+]

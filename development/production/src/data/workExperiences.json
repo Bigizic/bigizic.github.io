@@ -1,0 +1,47 @@
+[
+  {
+    "company": "Reedapt",
+    "role": "Backend Engineer",
+    "period": "December 2025 - April 2026",
+    "link": "https://reedapt.com",
+    "details": [
+      "Dubbing Software Lead",
+      "Editor Software Lead"
+    ]
+  },
+  {
+    "company": "Noks Technologies",
+    "role": "Junior Software Engineer",
+    "period": "January 2025 - March 2025",
+    "link": "",
+    "details": [
+      "Built and maintained web apps using C#, ReactJs, JQuery, and SQL.",
+      "Wrote efficient SQL queries for data handling.",
+      "Developed Restful APIs using C# and the .NET framework."
+    ]
+  },
+  {
+    "visible": false,
+    "company": "Noks Technologies",
+    "role": "Software Engineer",
+    "period": "One-Day Contract • 21 June 2024, 09:00 AM - 4:30 PM",
+    "link": "",
+    "details": [
+      "Successfully backed up critical files using Git, ensuring data integrity and version control.",
+      "Undertook a .NET project, marking my initial experience with the framework.",
+      "Developed and maintained a .NET MVP structure to facilitate synchronization of web files for hosting."
+    ]
+  },
+  {
+    "company": "Alx Africa",
+    "role": "Backend Developer - Intern",
+    "period": "October 2023 - March 2024",
+    "link": "https://www.alxafrica.com/",
+    "details": [
+      "Developed and maintained backend systems using Python and JavaScript.",
+      "Implemented caching and queuing systems to improve application performance and scalability.",
+      "Created unit tests to ensure code quality and reliability.",
+      "Collaborated in a team environment to design and deploy software solutions."
+    ]
+  }
+]

@@ -1,55 +1,30 @@
-import React from 'react';
-import { Code, Globe, Smartphone, Database, Zap } from 'lucide-react';
-import { Server, Shield, Mail, Cpu, Settings } from "lucide-react";
+import React, { type ReactNode } from 'react';
+import { Code, Globe, Smartphone, Database, Server, Shield, Mail, Cpu, Settings } from 'lucide-react';
+import servicesData from '../data/services.json';
+
+type ServiceRow = {
+  icon: string;
+  title: string;
+  description: string;
+};
+
+const ICON_MAP: Record<string, ReactNode> = {
+  Globe: <Globe size={32} />,
+  Code: <Code size={32} />,
+  Smartphone: <Smartphone size={32} />,
+  Database: <Database size={32} />,
+  Server: <Server size={32} />,
+  Shield: <Shield size={32} />,
+  Mail: <Mail size={32} />,
+  Cpu: <Cpu size={32} />,
+  Settings: <Settings size={32} />,
+};
 
 const Services: React.FC = () => {
-  const services = [
-    {
-      icon: <Globe size={32} />,
-      title: "Custom Website Solutions",
-      description: "Responsive, high-performance websites tailored to your business needs with modern UI/UX practices.",
-    },
-    {
-      icon: <Code size={32} />,
-      title: "Full-Stack Web Development",
-      description: "End-to-end web application development using modern stacks like React, Node.js, Python, and C#.",
-    },
-    {
-      icon: <Smartphone size={32} />,
-      title: 'Mobile Development',
-      description: 'Native and cross platform mobile applications for iOS and Android.',
-    },
-    {
-      icon: <Database size={32} />,
-      title: "Database Design & Management",
-      description: "Designing, optimizing, and managing relational and NoSQL databases such as MySQL, MongoDB, PostgreSQL, and Redis.",
-    },
-    {
-      icon: <Server size={32} />,
-      title: "API Development & Integration",
-      description: "Building secure and scalable RESTful APIs with integrations like Paystack, email services, and third-party platforms.",
-    },
-    {
-      icon: <Shield size={32} />,
-      title: "System Security & Optimization",
-      description: "Implementing caching, queuing, and security best practices to enhance system performance and reliability.",
-    },
-    {
-      icon: <Mail size={32} />,
-      title: "Automated Email & Campaign Systems",
-      description: "Creating automated systems for marketing, transactional, and campaign emails to engage and retain customers.",
-    },
-    {
-      icon: <Cpu size={32} />,
-      title: "DevOps & Deployment",
-      description: "Configuring and deploying applications on servers using Nginx, Apache, AWS, Docker, and CI/CD pipelines.",
-    },
-    {
-      icon: <Settings size={32} />,
-      title: "Performance Tuning & Scalability",
-      description: "Optimizing applications to handle high traffic and scale seamlessly while maintaining speed and reliability.",
-    },
-  ];
+  const services = (servicesData as ServiceRow[]).map((row) => ({
+    ...row,
+    icon: ICON_MAP[row.icon] ?? null,
+  }));
 
   return (
     <section id="services" className="services h-100 py-20 pt-32 md:pt-25">

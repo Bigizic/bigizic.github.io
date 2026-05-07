@@ -1,0 +1,215 @@
+[
+  {
+    "id": 1,
+    "title": "BB Glow'd Natural",
+    "url": "https://bbglownatural.com",
+    "role": "Full-Stack Developer",
+    "duration": "3rd Nov 2025 – 15th Nov 2025",
+    "location": "Remote Contract",
+    "screenshots": [
+      "/client_work/bb_glow/8.png",
+      "/client_work/bb_glow/9.png",
+      "/client_work/bb_glow/3.png",
+      "/client_work/bb_glow/4.png",
+      "/client_work/bb_glow/7.png",
+      "/client_work/bb_glow/1.png"
+    ],
+    "overview": "Developed a Mern + Next.js e-commerce web application for BB Glow'd Natural, a natural beauty brand that sells BB Glow products. The website is built with React and Tailwind CSS.",
+    "achievements": [
+      {
+        "title": "Frontend Development",
+        "items": [
+          "Built responsive Next.js + TypeScript + React application with Tailwind CSS",
+          "Optimized for mobile and desktop experiences",
+          "Redux for state management"
+        ]
+      },
+      {
+        "title": "Backend Development",
+        "items": [
+          "Built a RESTful API using Node.js + Express.js + MongoDB",
+          "Built a custom CMS for the admin to manage the products and orders",
+          "Integrated with Paystack for payment processing",
+          "Mailgun for email sending and verification"
+        ]
+      }
+    ],
+    "features": [
+      {
+        "title": "User Features",
+        "items": [
+          "User can view the products and add them to the cart",
+          "User can view the cart and checkout",
+          "User can view the order history",
+          "User can view the order details",
+          "User can view the order tracking",
+          "User can view the order tracking"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Tohanniees Beauty Booking",
+    "url": "https://beauty.tohannieesskincare.com",
+    "role": "Full-Stack Developer",
+    "duration": "Sep 24, 2025 – Oct 7, 2025",
+    "location": "Remote Contract",
+    "screenshots": [
+      "/client_work/beauty/dsk1.png",
+      "/client_work/beauty/dsk2.png",
+      "/client_work/beauty/dsk3.png",
+      "/client_work/beauty/dsk4.png",
+      "/client_work/beauty/dsk5.png",
+      "/client_work/beauty/dsk6.png"
+    ],
+    "overview": "Developed an appointment booking system for Tohanniees Skincare customers to schedule beauty and skincare consultations. This platform enables clients to easily book, manage, and track their appointments with real-time availability and automated notifications.",
+    "achievements": [
+      {
+        "title": "Booking System Development",
+        "items": [
+          "Built intuitive appointment scheduling interface",
+          "Implemented real-time availability calendar",
+          "Created responsive design for mobile booking",
+          "Integrated automated email confirmations and reminders"
+        ]
+      },
+      {
+        "title": "User Experience & Efficiency",
+        "items": [
+          "Designed streamlined booking flow for quick appointments",
+          "Implemented time slot selection with availability checks",
+          "Added appointment management and rescheduling features",
+          "Created clean, modern UI focused on ease of use"
+        ]
+      }
+    ],
+    "features": [
+      {
+        "title": "Booking Features",
+        "items": [
+          "Real-time appointment scheduling system",
+          "Interactive calendar with available time slots",
+          "Appointment confirmation and reminders",
+          "Easy rescheduling and cancellation"
+        ]
+      },
+      {
+        "title": "Customer Features",
+        "items": [
+          "Quick booking with minimal information required",
+          "Automated email notifications",
+          "Appointment history and upcoming bookings",
+          "Service selection for different treatments"
+        ]
+      }
+    ],
+    "quote": "This rapid 2-week development showcases my ability to deliver focused, efficient booking solutions that enhance customer experience and streamline business operations."
+  },
+  {
+    "id": 3,
+    "title": "The Link Hangouts",
+    "url": "https://thelinkhangout.com",
+    "role": "Full Stack Developer",
+    "duration": "Jun 2025 - Jul 2025",
+    "location": "Remote Contract",
+    "screenshots": [
+      "/client_work/tlh/dsk1.png",
+      "/client_work/tlh/dsk6.png",
+      "/client_work/tlh/dsk7.png",
+      "/client_work/tlh/dsk11.png"
+    ],
+    "overview": "Developed a comprehensive event ticketing platform with integrated e-commerce functionality for The Link Hangouts. This full featured web application serves as a complete solution for event management, ticket sales, and merchandise distribution.",
+    "achievements": [
+      {
+        "title": "Frontend Development",
+        "items": [
+          "Built responsive React application with Redux for state management"
+        ]
+      },
+      {
+        "title": "Backend & Integration",
+        "items": [
+          "Developed RESTful APIs using modern frameworks",
+          "Integrated Paystack payment gateway for secure transactions",
+          "Created automated email campaign system"
+        ]
+      }
+    ],
+    "features": [
+      {
+        "title": "Event Management",
+        "items": [
+          "Event creation and management system",
+          "Ticket booking and reservation system",
+          "Real-time availability tracking",
+          "QR code generation for tickets"
+        ]
+      },
+      {
+        "title": "E-commerce Platform",
+        "items": [
+          "Merchandise shop with product catalog",
+          "Shopping cart and checkout system",
+          "Inventory management",
+          "Order tracking and fulfillment"
+        ]
+      }
+    ],
+    "userFeatures": [
+      {
+        "title": "Authentication System",
+        "items": [
+          "Secure user registration and login",
+          "Password reset functionality",
+          "Email verification system",
+          "User profile management"
+        ]
+      },
+      {
+        "title": "Communication System",
+        "items": [
+          "Automated email campaigns",
+          "Welcome and confirmation emails",
+          "Event reminder notifications",
+          "Order confirmation and updates"
+        ]
+      }
+    ],
+    "quote": "This project showcases my ability to deliver end-to-end solutions, from initial concept to deployment, while maintaining high code quality and user experience standards."
+  },
+  {
+    "id": 4,
+    "title": "Tohanniees Skincare",
+    "url": "https://tohannieesskincare.com",
+    "role": "Full-Stack Developer",
+    "duration": "Nov 2024 – Jan 2025",
+    "location": "Remote Contract",
+    "screenshots": [
+      "/client_work/skincare/dsk1.png",
+      "/client_work/skincare/dsk2.png",
+      "/client_work/skincare/dsk3.png",
+      "/client_work/skincare/dsk4.png"
+    ],
+    "overview": "Developed a scalable, secure e-commerce platform for Tohanniees Skincare featuring product categories like Glow Oils, Face Creams, and Body Care. The platform includes seamless Paystack-powered payments, automated email marketing to over 700 subscribers, and fully integrated content and catalog management.",
+    "achievements": [
+      {
+        "title": "Backend Development & Integrations",
+        "items": [
+          "Secured RESTful APIs built with Express.js and MongoDB",
+          "local payment processing",
+          "Email automation system delivering marketing campaigns and transactional notifications",
+          "Performance-optimized API routes with caching strategies"
+        ]
+      },
+      {
+        "title": "Frontend & User Experience",
+        "items": [
+          "Responsive product browsing UI for skincare categories (kits, oils, creams, soaps)",
+          "Intuitive shopping flow with product filters and dynamic pricing"
+        ]
+      }
+    ],
+    "quote": "This project highlights my ability to deliver production-ready web applications—from crafting secure backend systems and seamless payment processes to designing engaging user interfaces under tight timelines."
+  }
+]

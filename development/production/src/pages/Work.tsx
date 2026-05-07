@@ -1,7 +1,21 @@
 import React from 'react';
 import { Briefcase } from 'lucide-react';
+import workExperiencesData from '../data/workExperiences.json';
 
-const WorkCard = ({ exp }: Record<string, any>) => {
+type WorkExperienceRow = {
+  company: string;
+  role: string;
+  period: string;
+  link: string;
+  details: string[];
+  visible?: boolean;
+};
+
+const experiences = (workExperiencesData as WorkExperienceRow[]).filter(
+  (exp) => exp.visible !== false
+);
+
+const WorkCard = ({ exp }: { exp: WorkExperienceRow }) => {
   return (
     <div>
       <div className="flex items-center gap-3 mb-4">
@@ -19,7 +33,7 @@ const WorkCard = ({ exp }: Record<string, any>) => {
       <p className="italic text-gray-800 mb-4">{exp.role}</p>
 
       <ul className="list-disc pl-5 space-y-2 text-black">
-        {exp.details?.map((detail: string, idx: number) => (
+        {exp.details?.map((detail, idx) => (
           <li key={idx}>{detail}</li>
         ))}
       </ul>
@@ -28,53 +42,6 @@ const WorkCard = ({ exp }: Record<string, any>) => {
 }
 
 const Work: React.FC = () => {
-  const experiences = [
-    {
-      company: "Reedapt",
-      role: "Backend Engineer",
-      period: "December 2025 - April 2026",
-      link: "https://reedapt.com",
-      details: [
-        "Dubbing Software Lead",
-        "Editor Software Lead"
-      ]
-    },
-    {
-      company: "Noks Technologies",
-      role: "Junior Software Engineer",
-      period: "January 2025 - March 2025",
-      link: "",
-      details: [
-        "Built and maintained web apps using C#, ReactJs, JQuery, and SQL.",
-        "Wrote efficient SQL queries for data handling.",
-        "Developed Restful APIs using C# and the .NET framework.",
-      ],
-    },
-    /*{
-      company: "Noks Technologies",
-      role: "Software Engineer",
-      period: "One-Day Contract • 21 June 2024, 09:00 AM - 4:30 PM",
-      link: "",
-      details: [
-        "Successfully backed up critical files using Git, ensuring data integrity and version control.",
-        "Undertook a .NET project, marking my initial experience with the framework.",
-        "Developed and maintained a .NET MVP structure to facilitate synchronization of web files for hosting.",
-      ],
-    },*/
-    {
-      company: "Alx Africa",
-      role: "Backend Developer - Intern",
-      period: "October 2023 - March 2024",
-      link: "https://www.alxafrica.com/",
-      details: [
-        "Developed and maintained backend systems using Python and JavaScript.",
-        "Implemented caching and queuing systems to improve application performance and scalability.",
-        "Created unit tests to ensure code quality and reliability.",
-        "Collaborated in a team environment to design and deploy software solutions.",
-      ],
-    },
-  ];
-
   return (
     <section id="work" className="work py-20 pt-32 md:pt-25">
       <div className=" mx-auto px-default">
