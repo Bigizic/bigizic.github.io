@@ -25,11 +25,13 @@ const Skills: React.FC = () => {
       items: [
         { img: 'palletsprojects_flask-ar21~v2.svg', size: 'w-24 h-9' },
         { img: 'djangoproject-ar21.svg', size: 'w-24 h-9' },
+        { img: 'fastapi-ar21.svg', size: 'w-24 h-9' },
         { img: 'reactjs-ar21.svg', size: 'w-24 h-9' },
         { img: 'js_redux-ar21.svg', size: 'w-24 h-9' },
         { img: 'nodejs-horizontal.svg', size: 'w-24 h-9' },
-        { img: 'getbootstrap-ar21.svg', size: 'w-24 h-9' },
         { img: 'pytorch-ar21.svg', size: 'w-24 h-9' },
+        { img: 'pandas-ar21.svg', size: 'w-24 h-9' },
+        { img: 'scikitlearn-ar21.svg', size: 'w-28 h-9' },
         { img: 'expressjs-ar21.svg', size: 'w-24 h-9' },
       ],
     },
@@ -71,7 +73,7 @@ const Skills: React.FC = () => {
                 {group.items.map((icon) => (
                   <div
                     key={icon.img}
-                    className="flex items-center justify-center bg-secondary-color rounded-2xl p-3 border border-accent/10 min-h-[64px]"
+                    className="flex items-center justify-center bg-white dark:bg-neutral-200 rounded-2xl p-3 border border-accent/10 min-h-[64px]"
                   >
                     <img
                       src={`/svg/logos/${icon.img}`}

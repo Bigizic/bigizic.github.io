@@ -68,7 +68,7 @@ const Education: React.FC = () => {
                     <img
                       src={school.logo}
                       alt={school.org}
-                      className="mb-4 max-h-12 w-auto object-contain"
+                      className="mb-4 max-h-12 w-auto object-contain bg-white dark:bg-neutral-200 rounded-lg px-2 py-1"
                     />
                   )}
                   <p className="font-body text-sm font-semibold text-accent mb-1">{school.org}</p>
