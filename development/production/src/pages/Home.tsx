@@ -1,5 +1,6 @@
 import React from 'react';
 import { Mail, Github, Linkedin, ArrowDown, ArrowUpRight, Layers } from 'lucide-react';
+import AsciiPortrait from '../components/AsciiPortrait';
 
 const competencies = [
   'Software engineering',
@@ -17,11 +18,7 @@ const Home: React.FC = () => {
         <div className="grid lg:grid-cols-[1fr_240px] gap-4 md:gap-5 items-start">
           <div className="stack-card bg-surface border border-accent/15 rounded-3xl p-6 md:p-10 shadow-sm">
             <div className="grid md:grid-cols-[160px_1fr] gap-8 md:gap-10 items-start">
-              <div
-                className="h-[180px] w-[140px] mx-auto md:mx-0 rounded-2xl bg-[url('https://res.cloudinary.com/dduai6ryd/image/upload/isaac.png')] bg-cover bg-top border border-accent/20"
-                role="img"
-                aria-label="Isaac Olalekan Ajibola"
-              />
+              <AsciiPortrait className="h-[180px] w-[135px] mx-auto md:mx-0" />
 
               <div>
                 <p className="font-body text-accent text-sm font-semibold tracking-wide mb-2">
