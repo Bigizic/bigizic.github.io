@@ -78,58 +78,58 @@ const About: React.FC = () => {
       <div className="row">
         <div className="col-lg-3 col-md-4">
           <div className="icon-box">
-            <i className="ri-global-line" style={{ color: "#ffbb2c" }}></i>
+            <i className="ri-global-line text-accent"></i>
             <h3>Full Stack Development</h3>
           </div>
         </div>
         <div className="col-lg-3 col-md-4 mt-4 mt-md-4">
           <div className="icon-box">
-            <i className="ri-global-line" style={{ color: "#2954ff" }}></i>
+            <i className="ri-global-line text-accent"></i>
             <h3>Cyber security</h3>
           </div>
         </div>
         <div className="col-lg-3 col-md-4 mt-4 mt-md-0">
           <div className="icon-box">
-            <i className="ri-database-2-line" style={{ color: "#5578ff" }}></i>
+            <i className="ri-database-2-line text-accent"></i>
             <h3>Machine Learning</h3>
           </div>
         </div>
 
         <div className="col-lg-3 col-md-4 mt-4 mt-md-0">
           <div className="icon-box">
-            <i className="ri-server-fill" style={{ color: "#e80368" }}></i>
+            <i className="ri-server-fill text-accent"></i>
             <h3>Web Servers & ization</h3>
           </div>
         </div>
 
         <div className="col-lg-3 col-md-4 mt-4 mt-lg-4">
           <div className="icon-box">
-            <i className="ri-code-box-fill" style={{ color: "#1c7d32" }}></i>
+            <i className="ri-code-box-fill text-accent"></i>
             <h3>Software Testing<sub>&nbsp; &nbsp;(Unit tests, Doc tests...)</sub> </h3>
           </div>
         </div>
         
         <div className="col-lg-3 col-md-4 mt-4">
           <div className="icon-box">
-            <i className="ri-code-s-slash-fill" style={{ color: "#28a745" }}></i>
+            <i className="ri-code-s-slash-fill text-accent"></i>
             <h3>Software Engineering</h3>
           </div>
         </div>
         <div className="col-lg-3 col-md-4 mt-4">
           <div className="icon-box">
-            <i className="ri-bar-chart-box-line" style={{ color: "#f1081f" }}></i>
+            <i className="ri-bar-chart-box-line text-accent"></i>
             <h3>GPTs</h3>
           </div>
         </div>
         <div className="col-lg-3 col-md-4 mt-4">
           <div className="icon-box">
-            <i className="ri-file-list-3-line" style={{ color: "#47aeff" }}></i>
+            <i className="ri-file-list-3-line text-accent"></i>
             <h3>Algorithms & Data Structures</h3>
           </div>
         </div>
         <div className="col-lg-3 col-md-4 mt-4">
           <div className="icon-box">
-            <i className="ri-terminal-box-fill" style={{ color: "#ffc107" }}></i>
+            <i className="ri-terminal-box-fill text-accent"></i>
             <h3>Linux, Shell Scripting</h3>
           </div>
         </div>
