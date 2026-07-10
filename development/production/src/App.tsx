@@ -1,17 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
+import { BrowserRouter as Router, useLocation } from 'react-router-dom';
 import Header from './components/Header';
 import ScrollIndicator from './components/ScrollIndicator';
-import About from './pages/About';
 import Education from './pages/Education';
-import Services from './pages/Services';
 import ClientWork from './pages/ClientWork';
 import Contact from './pages/Contact';
 import Skills from './pages/Skills';
 import Work from './pages/Work';
 import Home from './pages/Home';
+import { ThemeProvider } from './hooks/useTheme';
 
 const AppContent: React.FC = () => {
   const [currentSection, setCurrentSection] = useState('Home');
@@ -19,15 +16,6 @@ const AppContent: React.FC = () => {
   const location = useLocation();
 
   useEffect(() => {
-    /*const sectionMap: { [key: string]: string } = {
-      '/': 'Home',
-      '/education': 'Education',
-      '/skills': 'Skills',
-      '/services': 'Services',
-      '/work': 'Work Experience',
-      '/client-work': 'Client Work',
-      '/contact': 'Contact',
-    };*/
     const sectionMap: { [key: string]: string } = {
       '': 'Home',
       '#education': 'Education',
@@ -37,62 +25,29 @@ const AppContent: React.FC = () => {
       '#client-work': 'Client Work',
       '#contact': 'Contact',
     };
-    
+
     setCurrentSection(sectionMap[location.hash] || 'Home');
   }, [location]);
 
   useEffect(() => {
-      const handleResize = () => {
-        setIsMobile(window.innerWidth <= 768);
-      };
-  
-      handleResize();
-  
-      window.addEventListener('resize', handleResize);
-      return () => window.removeEventListener('resize', handleResize);
-  }, []);
-
-  useEffect(() => {
-    // Smooth scroll behavior
-    const handleScroll = () => {
-      // Debounce scroll events to prevent flickering
-      clearTimeout(window.scrollTimeout);
-      window.scrollTimeout = setTimeout(() => {
-        // Additional scroll handling if needed
-      }, 100);
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
     };
 
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-      clearTimeout(window.scrollTimeout);
-    };
-  }, []);
+    handleResize();
 
-  useEffect(() => {
-    AOS.init({
-      offset: 100,
-      duration: 1200,
-      easing: 'ease-out-cubic',
-      mirror: true,
-      anchorPlacement: 'bottom-center',
-      once: true
-    });
-
-    AOS.refresh();
-
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
   }, []);
 
   return (
-    <div className="bg-linear text-black">
+    <div className="bg-primary-dark text-ink min-h-screen">
       <Header />
-      <main className="relative">
+      <main className="relative pb-8">
         <Home />
         <Work />
         <ClientWork />
         <Skills />
-        {/*<Services />*/}
-        
         <Education />
         <Contact />
       </main>
@@ -102,11 +57,12 @@ const AppContent: React.FC = () => {
 };
 
 function App() {
-  {/*<Router basename={process.env.NODE_ENV === 'production' ? '/bigizic.github.io' : ''}>*/}
   return (
-    <Router>
-      <AppContent />
-    </Router>
+    <ThemeProvider>
+      <Router>
+        <AppContent />
+      </Router>
+    </ThemeProvider>
   );
 }
 
