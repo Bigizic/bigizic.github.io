@@ -1,4 +1,5 @@
 import React, { useCallback, useState } from 'react';
+import { asciiPortrait } from '../data/asciiProtrait';
 
 type Props = {
   className?: string;
@@ -38,15 +39,14 @@ const AsciiPortrait: React.FC<Props> = ({ className = '' }) => {
         draggable={false}
         className="absolute inset-0 h-full w-full object-cover object-top pointer-events-none"
       />
-      <img
-        src="/ascii.png"
-        alt=""
+      <pre
         aria-hidden="true"
-        draggable={false}
-        className={`absolute object-fill inset-0 z-10 h-full w-full object-cover object-top pointer-events-none transition-opacity duration-150 ${
+        className={`ascii-portrait__glyphs z-10 text-ink pointer-events-none transition-opacity duration-150 ${
           revealed ? 'opacity-0' : 'opacity-100'
         }`}
-      />
+      >
+        {asciiPortrait}
+      </pre>
     </div>
   );
 };
