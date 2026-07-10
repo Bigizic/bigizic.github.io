@@ -1,99 +1,93 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Github, Linkedin, Mail } from 'lucide-react';
-import TypingEffect from './TypingEffect';
+import { Github, Linkedin, Mail, Monitor, Moon, Sun } from 'lucide-react';
+import { useTheme, type ThemeMode } from '../hooks/useTheme';
+
+const themeMeta: Record<ThemeMode, { label: string; Icon: typeof Sun }> = {
+  system: { label: 'System theme', Icon: Monitor },
+  light: { label: 'Light mode', Icon: Sun },
+  dark: { label: 'Dark mode', Icon: Moon },
+};
 
 const Header: React.FC = () => {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
+  const { mode, cycleMode } = useTheme();
+  const { Icon, label } = themeMeta[mode];
 
   const navItems = [
     { name: 'Home', path: '#' },
-    { name: 'Education', path: '#education' },
+    { name: 'Work', path: '#work' },
+    { name: 'Projects', path: '#client-work' },
     { name: 'Skills', path: '#skills' },
-    //{ name: 'Services', path: '#services' },
-    { name: 'Work Experience', path: '#work' },
-    { name: 'Client Work', path: '#client-work' },
+    { name: 'Education', path: '#education' },
     { name: 'Contact', path: '#contact' },
   ];
-  const typingTexts = [
-    " computer programmer",
-    " full Stack Developer"
-  ]
 
   return (
-    <header 
-      id="header" 
-      className={'fixed top-0 left-0 w-full z-50 transition-all duration-500 h-20 bg-primary-dark/1 backdrop-blur-sm'}>
-      <div className="px-default h-full flex items-center justify-between">
-        <div className="flex flex-col w-full lg:w-fit">
-          <div className='flex flex-row justify-between w-full lg:w-fit items-end'>
-            <h1 className="font-bebas font-bold text-black text-2xl md:text-3xl pt-4 md:pt-0">
-              <Link to="/" className="hover:text-accent transition-colors">
-                Isaac Olalekan Ajibola
-              </Link>
-            </h1>
-                <div className="flex">
-                <a href="https://www.github.com/bigizic" target='_blank' className="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center text-black hover:bg-green-600 transition-colors">
-                  <Github size={16} />
-                </a>
-                <a href="https://www.linkedin.com/in/oliiver" target='_blank' className="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center text-black hover:bg-green-600 transition-colors">
-                  <Linkedin size={16} />
-                </a>
-                <a href="mailto:olalekanisaac75@gmail.com" target='_blank' className="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center text-black hover:bg-green-600 transition-colors">
-                  <Mail size={16} />
-                </a>
-                </div>
-            </div>
-            {/* Mobile subtitle */}
-            <h2 className="text-xs mt-0 mb-4 text-accent">
-              I'm a <span className="typing text-black text-400 border-b-2 border-black pb-1 text-xs">
-                <TypingEffect texts={typingTexts} />
-              </span>
-            </h2>
-          </div>
-
-          {/* Desktop Navigation */}
-          <nav className="hidden lg:block">
-            <ul className="flex space-x-8">
-              {navItems.map((item) => (
-                <li key={item.name}>
-                  <a
-                    href={item.path}
-                    className={`text-sm font-medium text-black hover:text-accent transition-colors relative ${
-                      location.pathname === item.path ? 'text-accent' : ''
-                    }`}
-                  >
-                    {item.name}
-                    <span className={`absolute bottom-0 left-0 h-0.5 bg-accent transition-all duration-300 ${
-                      location.pathname === item.path ? 'w-6' : 'w-0 hover:w-6'
-                    }`}></span>
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </nav>
-
-
+    <header id="header" className="fixed top-0 left-0 right-0 z-50 px-3 md:px-6 pt-3 md:pt-4">
+      <div className="mx-auto max-w-6xl rounded-full bg-primary-dark/40 backdrop-blur-md border border-accent/15 shadow-sm px-4 md:px-6 h-14 md:h-16 flex items-center justify-between">
+        <div className="flex items-center gap-3 min-w-0">
+          <h1 className="font-display font-bold text-ink text-base md:text-lg truncate">
+            <Link to="/">Isaac Olalekan Ajibola</Link>
+          </h1>
         </div>
 
-      {/* Mobile Navigation */}
-      {isMobileMenuOpen && (
-        <div className="md:hidden absolute top-full left-0 right-0 bg-black/70 backdrop-blur-md border-2 border-white/12 rounded-lg m-4">
-          <nav className="p-4">
+        <nav className="hidden lg:block">
+          <ul className="flex items-center gap-6">
             {navItems.map((item) => (
-              <a
-                key={item.name}
-                href={item.path}
-                className="block py-3 text-black hover:text-green-600 transition-colors"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                {item.name}
-              </a>
+              <li key={item.name}>
+                <a
+                  href={item.path}
+                  className={`text-sm font-medium transition-colors ${
+                    location.hash === item.path || (!location.hash && item.path === '#')
+                      ? 'text-accent'
+                      : 'text-muted'
+                  }`}
+                >
+                  {item.name}
+                </a>
+              </li>
             ))}
-          </nav>
+          </ul>
+        </nav>
+
+        <div className="flex items-center gap-1.5">
+          <a
+            href="https://www.github.com/bigizic"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-8 h-8 rounded-full flex items-center justify-center text-ink bg-third-color/80"
+            aria-label="GitHub"
+          >
+            <Github size={15} />
+          </a>
+          <a
+            href="https://www.linkedin.com/in/oliiver"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-8 h-8 rounded-full flex items-center justify-center text-ink bg-third-color/80"
+            aria-label="LinkedIn"
+          >
+            <Linkedin size={15} />
+          </a>
+          <a
+            href="mailto:olalekanisaac75@gmail.com"
+            className="w-8 h-8 rounded-full flex items-center justify-center text-ink bg-third-color/80"
+            aria-label="Email"
+          >
+            <Mail size={15} />
+          </a>
+          <button
+            type="button"
+            onClick={cycleMode}
+            className="ml-1 w-8 h-8 rounded-full flex items-center justify-center text-ink bg-third-color/80"
+            aria-label={label}
+            title={label}
+          >
+            <Icon size={15} />
+          </button>
         </div>
-      )}
+      </div>
     </header>
   );
 };

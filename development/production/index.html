@@ -41,6 +41,17 @@
     </script>
   </head>
   <body>
+    <script>
+      (function () {
+        try {
+          var key = 'portfolio-theme';
+          var mode = localStorage.getItem(key) || 'system';
+          var dark = mode === 'dark' || (mode === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches);
+          if (dark) document.documentElement.classList.add('dark');
+          document.documentElement.dataset.theme = mode;
+        } catch (e) {}
+      })();
+    </script>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>

@@ -1,97 +1,118 @@
 import React from 'react';
+import { ExternalLink } from 'lucide-react';
 
 const Education: React.FC = () => {
+  const schools = [
+    {
+      logo: '/education/alx-no-bg.png',
+      org: 'ALX Africa',
+      title: 'Diploma, Software Engineering',
+      period: 'Jan 2023 – Mar 2024',
+      points: [
+        'Full-stack web development and computer programming fundamentals',
+        'AWS system administration and scalable backend practices',
+        'Algorithms, databases, and collaborative software delivery',
+      ],
+    },
+    {
+      logo: '/education/fuoye-no-bg.png',
+      org: 'Federal University Oye-Ekiti',
+      title: 'BSc, Mechatronics Engineering',
+      period: '2019 – 2022',
+      points: [
+        'Computer-aided design (CAD) and systems thinking',
+        'Mechanics of materials and metallurgy',
+        'Power electronics foundations',
+      ],
+    },
+  ];
+
+  const certs = [
+    {
+      org: 'Coursera · IBM',
+      title: 'Machine Learning with Python',
+      period: 'Sep 2024',
+      link: 'https://www.coursera.org/account/accomplishments/verify/YFK98VC7AC8K',
+    },
+    {
+      org: 'ALX Africa',
+      title: 'Backend Engineering Specialization',
+      period: 'Oct 2023 – Mar 2024',
+      link: 'https://intranet.alxswe.com/certificates/HEL9sPXFJY',
+    },
+  ];
+
   return (
-    <section id="education" className="education h-100 py-20 pt-32 md:pt-25">
-      <div className=" mx-auto px-default">
-        <div className="text-center mb-16" data-aos="fade-up">
-          <h2 data-aos="fade-right" className="text-sm font-medium text-black-400 uppercase tracking-wider mb-4">
-            My Journey
-            <span className="inline-block w-32 h-px bg-black bg-white-400 ml-4 align-middle"></span>
+    <section id="education" className="education py-12 md:py-16">
+      <div className="mx-auto px-default max-w-6xl">
+        <div className="mb-8 md:mb-10">
+          <h2 className="font-display text-3xl md:text-4xl font-bold text-ink mb-3">
+            Education
           </h2>
-          <h1 className="text-4xl md:text-5xl font-bold text-black uppercase">Education</h1>
+          <p className="font-body text-muted max-w-2xl text-[15px]">
+            Formal training and credentials in software engineering, backend systems, and
+            machine learning.
+          </p>
         </div>
 
-        <div className="max-w-4xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-12">
-            {/* Education Column */}
-            <div data-aos="fade-right">
-              <h3 className="text-2xl font-bold text-black mb-8">Education</h3>
-
-              <div className="relative border-l-2 border-white/20 pl-8 pb-8">
-                <div className="absolute w-4 h-4 bg-yellow-600 rounded-full -left-2 top-0 border-2 border-third-color border-third-color-600"></div>
-                <img src='/education/alx-no-bg.png'/>
-                <p className="text-black-300 leading-relaxed mb-4">
-                  <b>ALX Africa</b>
-                </p>
-                <h4 className="text-lg font-semibold text-accent uppercase mb-2">
-                  Diploma Software Engineering
-                </h4>
-                <h5 className="text-base bg-white/15 inline-block px-4 py-1 rounded mb-4 font-semibold">
-                  Jan 2023 - March 2024
-                </h5>
-                <ul className="text-black-300 leading-relaxed pl-4">
-                  <li>Database Management Systems</li>
-                  <li>Algorithms &amp; Optimization for Big Data</li>
-                  <li>Discovering the essence of software engineering</li>
-                </ul>
-              </div>
-              
-              <div className="relative border-l-2 border-white/20 pl-8 pb-8">
-                <div className="absolute w-4 h-4 bg-yellow-600 rounded-full -left-2 top-0 border-2 border-third-color border-third-color-600"></div>
-                <img src='/education/fuoye-no-bg.png'/>
-                <p className="text-black-300 leading-relaxed mb-4">
-                  <b>Federal University Oye-Ekiti</b>
-                </p>
-                <h4 className="text-lg font-semibold text-accent uppercase mb-2">
-                  BSC Mechatronics Engineering
-                </h4>
-                <h5 className="text-base bg-white/15 inline-block px-4 py-1 rounded mb-4 font-semibold">
-                  2019-2022
-                </h5>
-                <ul className="text-black-300 leading-relaxed pl-4">
-                  <li>Computer-Aided Design (CAD)</li>
-                  <li>Mechanics of Materials and metallurgy</li>
-                  <li>Power Electronics</li>
-                </ul>
-              </div>
+        <div className="space-y-6">
+          <div className="stack-card bg-surface border border-accent/15 rounded-3xl p-6 md:p-8 shadow-sm">
+            <h3 className="font-display text-xl font-bold text-ink mb-6">Academic background</h3>
+            <div className="grid md:grid-cols-2 gap-6">
+              {schools.map((school) => (
+                <div
+                  key={school.org}
+                  className="bg-secondary-color border border-accent/10 rounded-2xl p-5"
+                >
+                  {school.logo && (
+                    <img
+                      src={school.logo}
+                      alt={school.org}
+                      className="mb-4 max-h-12 w-auto object-contain"
+                    />
+                  )}
+                  <p className="font-body text-sm font-semibold text-accent mb-1">{school.org}</p>
+                  <h4 className="font-display text-base font-bold text-ink mb-2">{school.title}</h4>
+                  <p className="font-body text-xs text-muted mb-3 inline-block bg-surface px-3 py-1 rounded-full">
+                    {school.period}
+                  </p>
+                  <ul className="font-body text-sm text-ink space-y-1.5 pl-4 list-disc">
+                    {school.points.map((p) => (
+                      <li key={p}>{p}</li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
             </div>
+          </div>
 
-            {/* Experience Column */}
-            <div data-aos="fade-left">
-              <h3 className="text-2xl font-bold text-black mb-8">Online Certifications</h3>
-              
-              <div className="relative border-l-2 border-white/20 pl-8 pb-8">
-                <div className="absolute w-4 h-4 bg-yellow-600 rounded-full -left-2 top-0 border-2 border-third-color border-third-color-600"></div>
-                <p className="text-black-300 leading-relaxed mb-4">
-                  <b>Coursera</b>
-                </p>
-                <h4 className="text-lg font-semibold text-accent uppercase mb-2">
-                  IBM Certificate for Machine Learning with Python
-                </h4>
-                <h5 className="text-base bg-white/15 inline-block px-4 py-1 rounded mb-4 font-semibold">
-                  September 2024
-                </h5>
-                <p className='text-accent'>
-                  <a href="https://www.coursera.org/account/accomplishments/verify/YFK98VC7AC8K" target="_blank" title="Certificate">Link to Certificate</a>
-                </p>
-              </div>
-
-              <div className="relative border-l-2 border-white/20 pl-8">
-                <div className="absolute w-4 h-4 bg-yellow-600 rounded-full -left-2 top-0 border-2 border-third-color border-third-color-600"></div>
-                <h4 className="text-lg font-semibold text-accent uppercase mb-2">
-                  Specialization in backend engineering
-                </h4>
-                <p className="text-black-300 leading-relaxed mb-4">
-                  <b>Alx Africa</b>
-                </p>
-                <h5 className="text-base bg-white/15 inline-block px-4 py-1 rounded mb-4 font-semibold">
-                  Oct 2023 - March 2024
-                </h5>
-                <p className='text-accent'>
-                  <a href="https://intranet.alxswe.com/certificates/HEL9sPXFJY" target="_blank" title="Certificate">Link to Certificate</a>
-                </p>
-              </div>
+          <div
+            className="stack-card bg-surface border border-accent/15 rounded-3xl p-6 md:p-8 shadow-sm"
+            style={{ zIndex: 2 }}
+          >
+            <h3 className="font-display text-xl font-bold text-ink mb-6">Certifications</h3>
+            <div className="grid md:grid-cols-2 gap-4">
+              {certs.map((cert) => (
+                <div
+                  key={cert.title}
+                  className="flex flex-col justify-between bg-secondary-color border border-accent/10 rounded-2xl p-5"
+                >
+                  <div>
+                    <p className="font-body text-sm font-semibold text-accent mb-1">{cert.org}</p>
+                    <h4 className="font-display text-base font-bold text-ink mb-2">{cert.title}</h4>
+                    <p className="font-body text-xs text-muted mb-4">{cert.period}</p>
+                  </div>
+                  <a
+                    href={cert.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 text-sm font-body text-accent font-semibold"
+                  >
+                    View certificate
+                    <ExternalLink size={14} />
+                  </a>
+                </div>
+              ))}
             </div>
           </div>
         </div>

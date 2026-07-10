@@ -118,25 +118,24 @@ const ScrollIndicator: React.FC<ScrollIndicatorProps> = ({ currentSection }) => 
       {!menuOpen ? (
         <button
           onClick={() => setMenuOpen(true)}
-          className="flex items-center justify-center w-12 h-12 rounded-full bg-linear text-black text-xl font-bold hover:scale-110 transition-all"
+          className="flex items-center justify-center w-12 h-12 rounded-full bg-accent text-on-accent text-xl font-bold shadow-sm"
         >
           <RiMenuFill size={20}/>
         </button>
       ) : (
-        <div className="flex flex-col items-center bg-white/1 backdrop-blur-md rounded-3xl p-4 opacity-90 w-48">
+        <div className="flex flex-col items-center bg-primary-dark/80 backdrop-blur-md rounded-3xl p-4 border border-accent/15 w-48">
           <button
             onClick={() => setMenuOpen(false)}
-            className="self-end text-black text-lg font-bold mb-2 hover:text-linear"
+            className="self-end text-ink text-lg font-bold mb-2"
           >
             ✕
           </button>
           {navItems.map((item) => (
             <button
-              data-aos={position.xx <= 0 ? "fade-right" : "fade-left"}
               key={item.name}
               onClick={() => handleScrollToSection(item.path)}
-              className={`border border-black/100 text-black uppercase text-xs mb-1 px-4 py-2 rounded hover:bg-accent/20 transition-all ${
-                currentSection === item.name ? "bg-white text-black scale-105" : ""
+              className={`border border-accent/20 text-ink uppercase text-xs mb-1 px-4 py-2 rounded-full font-body ${
+                currentSection === item.name ? "bg-accent text-on-accent" : "bg-surface"
               }`}
             >
               <span>

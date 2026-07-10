@@ -1,25 +1,24 @@
 /** @type {import('tailwindcss').Config} */
 export default {
+  darkMode: 'class',
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {
       colors: {
-        /*'primary-dark': '#142D25',*/
-        //'primary-dark': '#000000',
-        'primary-dark': '#fff',
-        'secondary-color': '#fff',
-        'third-color': '#F7DFBA',
-        'lynx': '#F7F7F7',
-        //'accent': '#12d640',
-        'accent': '#000000',
+        'primary-dark': 'var(--primary-color)',
+        'secondary-color': 'var(--secondary-color)',
+        'third-color': 'var(--third-color)',
+        'lynx': 'var(--lynx)',
+        'accent': 'var(--accent)',
+        'accent-soft': 'var(--accent-soft)',
+        'on-accent': 'var(--on-accent)',
+        'ink': 'var(--ink)',
+        'muted': 'var(--muted)',
+        'surface': 'var(--surface)',
       },
       fontFamily: {
-        'bebas': ['Bebas Neue', 'sans-serif'],
-        'poppins': ['Poppins', 'sans-serif'],
-        'geist-mono': ['Geist Mono', 'monospace'],
-      },
-      animation: {
-        'bounce': 'bounce 2s infinite',
+        'display': ['Syne', 'sans-serif'],
+        'body': ['Figtree', 'sans-serif'],
       },
       backdropBlur: {
         'xs': '2px',
@@ -30,16 +29,16 @@ export default {
     function({ addUtilities }) {
       addUtilities({
         '.px-default': {
-          'padding-left': '1rem',
-          'padding-right': '1rem',
+          'padding-left': '1.25rem',
+          'padding-right': '1.25rem',
           '@media (min-width: 768px)': {
-            'padding-left': '4rem',
-            'padding-right': '4rem',
+            'padding-left': '3.5rem',
+            'padding-right': '3.5rem',
           },
         },
         '.bg-linear': {
-          'background': 'rgba(0, 0, 0, 0.15)'
-        }
+          'background': 'var(--primary-color)',
+        },
       });
     },
   ],

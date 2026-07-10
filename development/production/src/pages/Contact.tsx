@@ -1,14 +1,14 @@
-import React, { useState } from "react";
-import { MapPin, Phone, Mail, Github, Linkedin } from "lucide-react";
-import { SiX } from "react-icons/si";
-import EmailSender from "../components/SendEmail/SendEmail";
+import React, { useState } from 'react';
+import { Mail, Github, Linkedin } from 'lucide-react';
+import { SiX } from 'react-icons/si';
+import EmailSender from '../components/SendEmail/SendEmail';
 
 const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    subject: "",
-    message: "",
+    name: '',
+    email: '',
+    subject: '',
+    message: '',
   });
 
   const [emailData, setEmailData] = useState<null | typeof formData>(null);
@@ -30,141 +30,123 @@ const Contact: React.FC = () => {
   };
 
   return (
-    <section id="contact" className="contact h-100 py-20 pt-32 md:pt-25">
-      <div className=" mx-auto px-default">
-        <div className="text-center mb-16" data-aos="fade-up">
-          <h2
-            data-aos="fade-right"
-            className="text-sm font-medium text-black-400 uppercase tracking-wider mb-4"
-          >
-            Get In Touch
-            <span className="inline-block w-32 h-px bg-black bg-white-400 ml-4 align-middle"></span>
-          </h2>
-          <h1 className="text-4xl md:text-5xl font-bold text-black uppercase">
-            Contact
-          </h1>
+    <section id="contact" className="contact py-12 md:py-16 pb-24">
+      <div className="mx-auto px-default max-w-6xl">
+        <div className="mb-8 md:mb-10">
+          <h2 className="font-display text-3xl md:text-4xl font-bold text-ink mb-3">Contact</h2>
+          <p className="font-body text-muted max-w-2xl text-[15px]">
+            Open to contract and full-time full-stack roles. Reach out for collaborations or
+            product builds.
+          </p>
         </div>
 
-        <div className="grid lg:grid-cols-3 gap-8 mb-12 justify-items-center">
-          {/* Contact Info */}
-          <div className="lg:col-span-1 space-y-6 w-fit">
-            <div className="bg-third-color p-6 rounded-lg" data-aos="fade-right">
-              <div className="flex items-center mb-4">
-                <div className="w-12 h-12 bg-lynx rounded-full flex items-center justify-center mr-4">
-                  <MapPin className="text-accent" size={20} />
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold text-black">
-                    Social Profiles
-                  </h3>
+        <div className="stack-card bg-surface border border-accent/15 rounded-3xl p-6 md:p-8 shadow-sm">
+          <div className="grid lg:grid-cols-3 gap-8">
+            <div className="space-y-4">
+              <div className="bg-secondary-color border border-accent/10 rounded-2xl p-5">
+                <h3 className="font-display text-lg font-bold text-ink mb-3">Social</h3>
+                <div className="flex gap-3">
+                  <a
+                    href="https://www.github.com/bigizic"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-10 h-10 rounded-full bg-surface flex items-center justify-center text-ink border border-accent/10"
+                    aria-label="GitHub"
+                  >
+                    <Github size={18} />
+                  </a>
+                  <a
+                    href="https://www.linkedin.com/in/oliiver"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-10 h-10 rounded-full bg-surface flex items-center justify-center text-ink border border-accent/10"
+                    aria-label="LinkedIn"
+                  >
+                    <Linkedin size={18} />
+                  </a>
+                  <a
+                    href="https://x.com/smallsilverback"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-10 h-10 rounded-full bg-surface flex items-center justify-center text-ink border border-accent/10"
+                    aria-label="X"
+                  >
+                    <SiX size={16} />
+                  </a>
                 </div>
               </div>
-              <div className="flex space-x-6 mt-4 ml-16">
-                <a
-                  href="https://www.github.com/bigizic"
-                  target="_blank"
-                  className="text-black hover:text-accent transition-colors"
-                >
-                  <Github size={18} />
-                </a>
-                <a
-                  href="https://www.linkedin.com/in/oliiver"
-                  target="_blank"
-                  className="text-black hover:text-accent transition-colors"
-                >
-                  <Linkedin size={18} />
-                </a>
-                <a
-                  href="https://x.com/smallsilverback"
-                  target="_blank"
-                  className="text-black hover:text-accent transition-colors"
-                >
-                  <SiX size={18} />
-                </a>
+
+              <div className="bg-secondary-color border border-accent/10 rounded-2xl p-5">
+                <div className="flex items-center gap-3 mb-2">
+                  <div className="w-10 h-10 rounded-full bg-surface flex items-center justify-center border border-accent/10">
+                    <Mail className="text-accent" size={18} />
+                  </div>
+                  <h3 className="font-display text-lg font-bold text-ink">Email</h3>
+                </div>
+                <p className="font-body text-sm text-muted break-all">
+                  olalekanisaac75@gmail.com
+                </p>
               </div>
             </div>
 
-            <div
-              className="bg-third-color p-6 rounded-lg w-fit"
-              data-aos="fade-right"
-              data-aos-delay="100"
-            >
-              <div className="flex items-center mb-4 w-fit">
-                <div className="w-12 h-12 bg-lynx rounded-full flex items-center justify-center mr-4">
-                  <Mail className="text-accent" size={20} />
+            <div className="lg:col-span-2">
+              <form onSubmit={handleSubmit} className="space-y-4">
+                <div className="grid md:grid-cols-2 gap-4">
+                  <input
+                    type="text"
+                    name="name"
+                    placeholder="Your name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    className="w-full px-4 py-3 bg-secondary-color border border-accent/10 rounded-2xl text-ink placeholder:text-muted/70 font-body focus:outline-none focus:border-accent"
+                    required
+                  />
+                  <input
+                    type="email"
+                    name="email"
+                    placeholder="Your email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    className="w-full px-4 py-3 bg-secondary-color border border-accent/10 rounded-2xl text-ink placeholder:text-muted/70 font-body focus:outline-none focus:border-accent"
+                    required
+                  />
                 </div>
-                <div>
-                  <h3 className="text-xl font-bold text-black">Email</h3>
-                </div>
-              </div>
-              <p className="text-black ml-16">olalekanisaac75@gmail.com</p>
-            </div>
-
-          </div>
-
-          {/* Contact Form */}
-          <div className="lg:col-span-2">
-            <form
-              onSubmit={handleSubmit}
-              className="p-8 rounded-lg backdrop-blur-sm"
-              data-aos="fade-left"
-            >
-              <div className="grid md:grid-cols-2 gap-6 mb-6">
                 <input
                   type="text"
-                  name="name"
-                  placeholder="Your Name"
-                  value={formData.name}
+                  name="subject"
+                  placeholder="Subject"
+                  value={formData.subject}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 bg-white/100 border-0 rounded text-black placeholder-black/100 focus:bg-white/10 focus:outline-none transition-colors"
+                  className="w-full px-4 py-3 bg-secondary-color border border-accent/10 rounded-2xl text-ink placeholder:text-muted/70 font-body focus:outline-none focus:border-accent"
                   required
                 />
-                <input
-                  type="email"
-                  name="email"
-                  placeholder="Your Email"
-                  value={formData.email}
+                <textarea
+                  name="message"
+                  placeholder="Message"
+                  rows={6}
+                  value={formData.message}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 bg-white/100 border-0 rounded text-black placeholder-black/100 focus:bg-white/10 focus:outline-none transition-colors"
+                  className="w-full px-4 py-3 bg-secondary-color border border-accent/10 rounded-2xl text-ink placeholder:text-muted/70 font-body focus:outline-none focus:border-accent resize-none"
                   required
                 />
-              </div>
-              <input
-                type="text"
-                name="subject"
-                placeholder="Subject"
-                value={formData.subject}
-                onChange={handleChange}
-                className="w-full px-4 py-3 bg-white/100 border-0 rounded text-black placeholder-black/100 focus:bg-white/10 focus:outline-none transition-colors mb-6"
-                required
-              />
-              <textarea
-                name="message"
-                placeholder="Message"
-                rows={6}
-                value={formData.message}
-                onChange={handleChange}
-                className="w-full px-4 py-3 bg-white/100 border-0 rounded text-black placeholder-black/100 focus:bg-white/10 focus:outline-none transition-colors mb-6 resize-none"
-                required
-              ></textarea>
-              <button
-                type="submit"
-                className="bg-accent hover:bg-accent/80 text-white px-8 py-3 rounded font-medium transition-colors"
-              >
-                Send Message
-              </button>
-            </form>
+                <button
+                  type="submit"
+                  className="bg-accent text-on-accent px-6 py-3 rounded-full font-display font-semibold text-sm"
+                >
+                  Send message
+                </button>
+              </form>
 
-            {/* Email sender trigger */}
-            {showEmailSender && emailData && (
-              <EmailSender
-                name={emailData.name}
-                email={emailData.email}
-                subject={emailData.subject}
-                message={emailData.message}
-                setFormData={setFormData}
-              />
-            )}
+              {showEmailSender && emailData && (
+                <EmailSender
+                  name={emailData.name}
+                  email={emailData.email}
+                  subject={emailData.subject}
+                  message={emailData.message}
+                  setFormData={setFormData}
+                />
+              )}
+            </div>
           </div>
         </div>
       </div>

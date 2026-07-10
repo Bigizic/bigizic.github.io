@@ -1,132 +1,111 @@
 import React from 'react';
-import { Cake, Calendar, MapPin, GraduationCap, Mail, Briefcase, Github } from "lucide-react";
-import {
-  RiGlobalLine,
-  RiDatabase2Line,
-  RiServerFill,
-  RiCodeBoxFill,
-  RiCodeSSlashFill,
-  RiBarChartBoxLine,
-  RiFileList3Line,
-  RiTerminalBoxFill
-} from "react-icons/ri";
+import { Mail, Github, Linkedin, ArrowDown, ArrowUpRight, Layers } from 'lucide-react';
+
+const competencies = [
+  'Software engineering',
+  'Systems & backends',
+  'Algorithms',
+  'Linux & scripting',
+  'Databases',
+  'Full-stack delivery',
+];
 
 const Home: React.FC = () => {
   return (
-    <section className="h-100 py-20 pt-32 md:pt-25">
-      <div className=" mx-auto px-default">
-        <div className="text-center mb-16" data-aos="fade-up">
-          <h2 data-aos="fade-right" className="text-sm font-medium text-black-400 uppercase tracking-wider mb-4">
-            Learn More About Me
-            <span className="inline-block w-32 h-px bg-black bg-white-400 ml-4 align-middle"></span>
-          </h2>
-        </div>
-
-        <div className="grid gap-12 items-center text-center">
-          <div data-aos="fade-right">
-          <div className="border-0 h-[180px] w-[140px]  mx-auto rounded-[10px] md:rounded-lg shadow-2xl bg-[url('https://res.cloudinary.com/dduai6ryd/image/upload/isaac.png')] bg-cover bg-top md:bg-center"></div>
-            {/*<img
-              src="https://res.cloudinary.com/dduai6ryd/image/upload/isaac.png"
-              alt="Profile"
-              className="w-full max-w-md mx-auto rounded-lg shadow-2xl"
-            />*/}
-          </div>
-
-          <div data-aos="fade-left text-center">
-            <h3 className="text-[28px] font-bold text-accent mb-6 text-center leading-3">Computer Programmer</h3>
-            <p className="text-black-300 mb-6 leading-relaxed text-[14px]">
-             Disciplined and results oriented computer programmer
-            </p>
-            
-            <div className="grid md:grid-cols-2 gap-4 mb-8">
-              <div>
-              <p className="text-black-300 mb-2 flex items-center text-sm">
-                  <Mail className="text-accent mr-2 w-4 h-4" />
-                  <strong>Email:</strong>&nbsp;<a href="mailto:olalekanisaac75@gmail.com" className="text-accent">olalekanisaac75@gmail.com</a>
-                </p>
-                <p className="text-black-300 mb-2 flex items-center text-sm">
-                  <Github className="text-accent mr-2 w-4 h-4" />
-                  <strong>Github:</strong>&nbsp;<a href="https://www.github.com/bigizic" target='_blank' className="text-accent">bigizic</a>
-                </p>
-                {/*<p className="text-black-300 mb-2 flex items-center">
-                  <Cake className="text-accent mr-2 w-4 h-4" />
-                  <strong>Birthday:</strong>&nbsp;18 June 2001
-                </p>*/}
-                {/*<p className="text-black-300 mb-2 flex items-center">
-                  <Calendar className="text-accent mr-2 w-4 h-4" />
-                  <strong>Age:</strong>&nbsp;{new Date().getFullYear() - 2001}
-                </p>*/}
-                {/*<p className="text-black-300 mb-2 flex items-center">
-                  <MapPin className="text-accent mr-2 w-4 h-4" />
-                  <strong>City:</strong>&nbsp;Lagos, Nigeria
-                </p>*/}
-              </div>
+    <section className="min-h-[88vh] pt-28 md:pt-32 pb-12">
+      <div className="mx-auto px-default max-w-6xl w-full">
+        <div className="grid lg:grid-cols-[1fr_240px] gap-4 md:gap-5 items-start">
+          <div className="stack-card bg-surface border border-accent/15 rounded-3xl p-6 md:p-10 shadow-sm">
+            <div className="grid md:grid-cols-[160px_1fr] gap-8 md:gap-10 items-start">
+              <div
+                className="h-[180px] w-[140px] mx-auto md:mx-0 rounded-2xl bg-[url('https://res.cloudinary.com/dduai6ryd/image/upload/isaac.png')] bg-cover bg-top border border-accent/20"
+                role="img"
+                aria-label="Isaac Olalekan Ajibola"
+              />
 
               <div>
-                {/*<p className="text-black-300 mb-2 flex items-center">
-                  <GraduationCap className="text-accent mr-2 w-4 h-4" />
-                  <strong>Degree:</strong>&nbsp;Diploma
-                </p>*/}
-                {/*<p className="text-black-300 mb-2 flex items-center">
-                  <Briefcase className="text-accent mr-2 w-4 h-4" />
-                  <strong>Freelance:</strong>&nbsp;Available
-                </p>*/}
+                <p className="font-body text-accent text-sm font-semibold tracking-wide mb-2">
+                  Full-Stack Software Engineer · Computer Programmer
+                </p>
+                <h2 className="font-display text-3xl md:text-4xl font-bold text-ink mb-4 leading-tight">
+                  Software engineer, computer programmer.
+                </h2>
+                <p className="font-body text-muted text-[15px] md:text-base max-w-2xl mb-6">
+                  Full-stack software engineer and computer programmer delivering production systems
+                  across the stack, with a strong foundation in computing fundamentals and algorithms.
+                </p>
+
+                <div className="flex flex-wrap gap-3 mb-7 text-sm font-body">
+                  <a
+                    href="mailto:olalekanisaac75@gmail.com"
+                    className="inline-flex items-center gap-2 text-ink bg-third-color px-3 py-1.5 rounded-full"
+                  >
+                    <Mail size={14} className="text-accent" />
+                    olalekanisaac75@gmail.com
+                  </a>
+                  <a
+                    href="https://www.github.com/bigizic"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 text-ink bg-third-color px-3 py-1.5 rounded-full"
+                  >
+                    <Github size={14} className="text-accent" />
+                    github.com/bigizic
+                  </a>
+                  <a
+                    href="https://www.linkedin.com/in/oliiver"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 text-ink bg-third-color px-3 py-1.5 rounded-full"
+                  >
+                    <Linkedin size={14} className="text-accent" />
+                    LinkedIn
+                  </a>
+                </div>
+
+                <div className="flex flex-wrap gap-2 mb-8">
+                  {competencies.map((item) => (
+                    <span
+                      key={item}
+                      className="text-xs md:text-sm font-body text-ink border border-accent/20 bg-secondary-color px-3 py-1.5 rounded-full"
+                    >
+                      {item}
+                    </span>
+                  ))}
+                </div>
+
+                <a
+                  href="#work"
+                  className="inline-flex items-center gap-2 bg-accent text-on-accent font-display font-semibold text-sm px-5 py-2.5 rounded-full"
+                >
+                  View experience
+                  <ArrowDown size={16} />
+                </a>
               </div>
             </div>
-
-            {/*<p className="text-black-300 leading-relaxed">
-              My expertise spans full-stack development, system administration,
-              DevOps, and database management, enabling me to design and implement
-              scalable, high performance solutions.
-            </p>*/}
-            <div className="interests  mt-12">
-              <div className="section-title mb-6">
-            <h2 className="text-2xl text-black font-bold mb-4 text-left">Interests</h2>
           </div>
 
-          <div className="grid grid-cols-3 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div className="icon-box text-center">
-              <RiGlobalLine size={24} color="#ffbb2c" className="mx-auto mb-2" />
-              <p className="text-black text-[12px]">Web app Development</p>
+          <a
+            href="https://linktree.isaacajibola.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="stack-card lg:sticky lg:top-28 order-first lg:order-none bg-surface border border-accent/20 rounded-3xl p-5 md:p-6 shadow-sm flex flex-col gap-3 group"
+          >
+            <div className="w-10 h-10 rounded-2xl bg-third-color flex items-center justify-center text-accent">
+              <Layers size={18} />
             </div>
-            <div className="icon-box text-center">
-              <RiGlobalLine size={24} color="#2954ff" className="mx-auto mb-2" />
-              <p className="text-black text-[12px]">Cyber Security</p>
+            <div>
+              <p className="font-display text-sm font-bold text-ink mb-1">Side projects</p>
+              <p className="font-body text-xs text-muted leading-relaxed">
+                Live demos and public apps hosted on my subdomains. Open the directory to try them.
+              </p>
             </div>
-            <div className="icon-box text-center">
-              <RiDatabase2Line size={24} color="#5578ff" className="mx-auto mb-2" />
-              <p className="text-black text-[12px]">Machine Learning</p>
-            </div>
-            <div className="icon-box text-center">
-              <RiServerFill size={24} color="#e80368" className="mx-auto mb-2" />
-              <p className="text-black text-[12px]">Web Servers & ization</p>
-            </div>
-            <div className="icon-box text-center">
-              <RiCodeBoxFill size={24} color="#1c7d32" className="mx-auto mb-2" />
-              <p className="text-black text-[12px]">Software Testing<sub>&nbsp;(Unit tests, Doc tests...)</sub></p>
-            </div>
-            <div className="icon-box text-center">
-              <RiCodeSSlashFill size={24} color="#28a745" className="mx-auto mb-2" />
-              <p className="text-black text-[12px]">Software Engineering</p>
-            </div>
-            <div className="icon-box text-center">
-              <RiBarChartBoxLine size={24} color="#f1081f" className="mx-auto mb-2" />
-              <p className="text-black text-[12px]">Ai agents</p>
-            </div>
-            <div className="icon-box text-center">
-              <RiFileList3Line size={24} color="#47aeff" className="mx-auto mb-2" />
-              <p className="text-black text-[12px]">Algorithms & Data Structures</p>
-            </div>
-            <div className="icon-box text-center">
-              <RiTerminalBoxFill size={24} color="#ffc107" className="mx-auto mb-2" />
-              <p className="text-black text-[12px]">Linux, Shell Scripting</p>
-            </div>
-          </div>
+            <span className="inline-flex items-center gap-1.5 font-display text-xs font-semibold text-accent mt-auto pt-1">
+              linktree.isaacajibola.com
+              <ArrowUpRight size={14} />
+            </span>
+          </a>
         </div>
-          </div>
-        </div>
-
-
       </div>
     </section>
   );

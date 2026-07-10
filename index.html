@@ -39,13 +39,23 @@
    
       gtag('config', 'G-Q35J6QTBDP');
     </script>
-    <script type="module" crossorigin src="/assets/index-TcF7Smub.js"></script>
-    <link rel="modulepreload" crossorigin href="/assets/vendor-Q3K9tvtn.js">
-    <link rel="modulepreload" crossorigin href="/assets/router-F5Rigjqy.js">
-    <link rel="modulepreload" crossorigin href="/assets/aos-D-H8jW6S.js">
-    <link rel="stylesheet" crossorigin href="/assets/index-EnoYV6N5.css">
+    <script type="module" crossorigin src="/assets/index-BQZrfxHX.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/vendor-Gm9i_4Ku.js">
+    <link rel="modulepreload" crossorigin href="/assets/router-C0jL7MBL.js">
+    <link rel="stylesheet" crossorigin href="/assets/index-cMWJhLJY.css">
   </head>
   <body>
+    <script>
+      (function () {
+        try {
+          var key = 'portfolio-theme';
+          var mode = localStorage.getItem(key) || 'system';
+          var dark = mode === 'dark' || (mode === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches);
+          if (dark) document.documentElement.classList.add('dark');
+          document.documentElement.dataset.theme = mode;
+        } catch (e) {}
+      })();
+    </script>
     <div id="root"></div>
   </body>
 </html>
