@@ -21,15 +21,15 @@
 
 .dark {
   --primary-color: #000000;
-  --secondary-color: #000000;
-  --third-color: #000000;
+  --secondary-color: #1a1a1a;
+  --third-color: #222222;
   --lynx: #2a2a2a;
   --accent: #2dd4bf;
   --accent-soft: #5eead4;
   --on-accent: #0a0a0a;
   --ink: #f5f5f5;
   --muted: #a3a3a3;
-  --surface: #000000;
+  --surface: #111111;
   --border: rgba(45, 212, 191, 0.25);
   --overlay: rgba(0, 0, 0, 0.7);
 }
